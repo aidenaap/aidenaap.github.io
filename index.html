@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta viewport="width=device-width, initial-scale=1.0" />
+
+    <meta name="author" content="Aiden Perez" />
+    <meta name="description" content="The website containing all of the information pertaining to the
+    most interesting coder in the world." />
+    <meta name="keywords" content="Developer, engineer, software, dj, html, css, sql, js" />
+
+    <!-- fontAwesome stylesheet for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" />
+
+    <!-- some good ol custom scss mapped to css -->
+    <link rel="stylesheet" href="styles/styles.css" />
+
+    <title>Aiden Perez</title>
+</head>
+<body>
+    <!-- navbar -->
+    <nav>
+        <a class="logo" href="#">AP</a>
+        <ul>
+            <li><a href="https://github.com/aidenaap" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a></li>
+            <li><a href="https://www.linkedin.com/in/aiden-perez/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a></li>
+            <li><a href="https://www.tiktok.com/@spicy_perez" target="_blank" rel="noopener noreferrer"><i class="fab fa-tiktok"></i></a></li>
+            <li><a href="https://www.instagram.com/aiden_perez11/?hl=en" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a></li>
+            <li><a href="https://soundcloud.com/user-352529528" target="_blank" rel="noopener noreferrer"><i class="fab fa-soundcloud"></i></a></li>
+        </ul>
+    </nav>
+
+    <!-- star wars introduction screen -->
+    <section class="intro-sw-section">
+        <div class="sw-credits">
+            <div class="sw-text">
+                <h1>AIDEN PEREZ</h1>
+                <h4>The Most Interesting Dev in the World</h4><br/>
+                <p>
+                    Hello! I'm Aiden, a motivated, creative software developer always looking for new opportunities to develop and apply my current skillset.
+                    With over five years in programming to build up a strong foundation in data structures, algorithms, and object-oriented programming,
+                    I am confident in my abilities to efficiently solve nearly any complex problem. Rather than reviewing the same subjects semester after semester,
+                    I branched out to gain experience in a variety of technologies, with each decreasing the time it takes to reach fluency.
+                    This exposure coupled with unique life experiences has made me a feared opponent in any realm of human endeavor.
+                </p>
+                </br>
+                <p>
+                    Some life experiences that fall outside the norm of a typical CS student include working in teams my entire life and working as an entertainer.
+                    Playing hockey for over 15 years made me extremely comfortable working and excelling in teams. It also provided valuable leadership experience
+                    after being chosen as the captain of my varsity team for 2 years. Throughout constantly rallying a group of 20 teenagers and their parents, my 
+                    communication skills drastically improved. Desiring to hone the ability more, I chose to take up odd jobs in college. Working as a trivia host
+                    and kayak tour guide led to better confidence in speaking to large groups of people, thinking on the fly, and creatively portraying thoughts
+                    to keep people engaged.
+                </p>
+                </br>
+                <p>
+                    While speaking and programming are fantastic creative outlets, they don't nearly satisfy my itch, hence my shameless link to my soundcloud
+                    in the top right corner there. Thanks for reading until the end despite this being longer than a tiktok :).
+                </p>
+                </br>
+                <p>
+                    - AP
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- about section -->
+    <section class="about-section">
+        <div class="about-info-col fade-in fade-slower left">
+            <div class="about-tabs">
+                <p onclick="openEducationTab()" id="education-tab" class="active-tab">Education</p>
+                <p onclick="openSkillsTab()" id="skills-tab">Skills</p>
+                <p onclick="openExperienceTab()" id="experience-tab">Experience</p>
+            </div>
+            <div id="education-card" class="about-card active-link">
+                <h2>San Diego State University <span class="date">(2018-2022)</span></h2>
+                <p>
+                    B.S. Computer Science 3.1 GPA<br>
+                    Dean's List - Fall '18 and '19, Spring '19<br />
+                    Organizations - Men's Ice Hockey, AI club, Cybersecurity club<br />
+                </p>
+                <h2>HarvardEdx CS50 Web Programming <br /> with Python and Javascript <span class="date">(2021)</span></h2>
+                <p>
+                    Heavy focus on Python's Django framework <br />
+                    Introduction to SQLite, models/migrations, UI/UX, and site security  <br />
+                    Strengthened skills in git, html, css, & Javascript 
+                </p>
+                <h2>Georgia Tech Computing In Python II<br /> Control Structures - HGTx CS1301x11 <span class="date">(2020)</span></h2>
+                <p>
+                    A general introduction to the Python language<br />
+                    Led to development of skills in numerous Python libraries including: <br />
+                    NumPy, Pandas, Seaborn(pyplot), Scikit-Learn, SciPy, Selenium, & BS4
+                </p>
+            </div>
+            <div id="skills-card" class="about-card">
+                <h2>I. Database Management & Administration</h2>
+                <p>
+                    Relational DBMS: MySQL, SQLite, PostgreSQL<br />
+                    NoSQL DBMS: MongoDB, Couchbase
+                </p>
+                <h2>II. Data Analysis & Visualization</h2>
+                <p>
+                    Tableau, Power Bi, Python's Matplotlib/Seaborn<br />
+                </p>
+                <h2>III. Proficient Programming Languages</h2>
+                <p>
+                    Python, Java, C, C++, SQL, HTML/CSS
+                </p>
+                <h2>IV. Additional Abilities</h2>
+                <p>
+                    Javascript, PHP, R, Unix, Git, Vim, Eclipse, MS Office<br />
+                    DSA (BFS/DFS, Sorting, Multiple linear regression, Clustering)<br />
+                    Spanish and French(ish) speaker
+                </p>
+            </div>
+            <div id="experience-card" class="about-card">
+                <h2>Rancho Roasters - Data Analyst <span class="date">(2022)</span></h2>
+                <p>
+                    Performed data analysis on store-wide data to understand trends in sales<br />
+                    Utilized tableau to effectively portray findings and present them to management
+                </p>
+                <h2>La Jolla Kayak - Tour Guide <span class="date">(2021-2022)</span></h2>
+                <p>
+                    Led groups of 20-40 people across 2.5 miles through the LJ Sea Caves<br />
+                    Worked in conjunction with other guides to quickly ensure customer safety<br />
+                    Gained experience in presenting information creatively and effectively
+                </p>
+                <h2>Trivia Goat - Trivia Host <span class="date">(2021)</span></h2>
+                <p>
+                    Host of weekly trivia games at Mike Hess Brewery in Imperial Beach<br />
+                    Entertained crowds of 40-100 people, maintaining their attention for the 2 hour duration of the game
+                </p>
+            </div>
+        </div>
+        <div class="about-pic-col fade-in right">
+            <h1>About Me</h1>
+            <div class="pic-container">
+                <img id="hockey-pic" src="images/hockey-pic.jpeg" />
+            </div>
+        </div>
+    </section>
+
+    <!-- portfolio section -->
+    <section class="portfolio-section">
+        <div class="carousel">
+            <button class="carousel-btn previous" id="previous"><</button>
+            <!-- carousel cards -->
+            <div class="carousel-cards active">
+                <div class="car-card"> <!-- intro card --> 
+                    <h2 class="port-header fade-in fade-slower">Check Out Some Projects!</h2>
+                </div>
+                <div class="car-card"> <!-- rpi incrementor -->
+                    <div class="card-col1">
+                        <h2>RPi Plant Incrementor</h2>
+                        <p>With the hustle and bustle of everyday life, the average person is often too distracted to ensure their plants are adequately watered. Hence, the raspberry pi plant incrementor.</p>
+                        <p>My team utilized a raspberry pi, rpi compatible moisture sensor, and a simple user GUI to display when a house plant is under watered. In doing so, I gained familiarity working with hardware and practiced the process of sending json packets to a server, python's django, and a dynamic user display.</p>
+                    </div>
+                    <div class="card-col2">
+                        <iframe src="https://www.youtube.com/embed/WxvX3ORjaEY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <p class="link"><i class="fab fa-github"></i><a href="https://github.com/Incrementor-Project-Group/AI-Based-Autonomous-Agricultural-Irrigation-System.git" target="_blank" rel="noopener noreferrer">Source Code</a></p>
+                    </div>
+                </div>
+                <div class="car-card"> <!-- page table rev -->
+                    <div class="card-col1-rev">
+                        <img src="https://imgs.search.brave.com/72I0ciRSHlGHxwrVuvHaqDD4V_VDN6hgiMEu5qjsi58/rs:fit:638:479:1/g:ce/aHR0cHM6Ly9pLnN0/YWNrLmltZ3VyLmNv/bS84dzlVcS5qcGc" alt="page-table image" />
+                        <p class="link"><i class="fab fa-github"></i><a href="https://github.com/jcoffman9/Multi-Level-Paging" target="_blank" rel="noopener noreferrer">Source Code</a></p>
+                    </div> 
+                    <div class="card-col2-rev">
+                        <h2>Multi-Level Page Table</h2>
+                        <p>
+                            Alongside a partner, built a multi level page table with a small translation 
+                            lookaside buffer cache (TLB) in c++.
+                        </p>
+                        <p>
+                            Several additional functions were added, allowing for users to furthur understand
+                            underlying processes. Some include: mapping between physical & logical addresses,
+                            walking the page table while showing if TLB/PT hit, a report summary of the page
+                            table, and others.
+                        </p>
+                    </div>
+                </div>
+                <div class="car-card"> <!-- rec-league administrator -->
+                    <div class="card-col1">
+                        <h2 class="small-header">Recreational League App</h2>
+                        <p>
+                            A complete web appplication with a custom admin/user management system,
+                            allowing users to view stats and admins to perform CRUD operations. Utilized
+                            a nearly complete php backend system along with javascript to smoothly update
+                            data efficiently depending on user and user's decisions.
+                        </p>
+                        <p>
+                            Admin abilities include creating leagues, in which a league code will be created
+                            and given to users for them to input at registration. Each league can contain
+                            any number of seasons, intended for different levels/age groups. Teams and matches
+                            are tracked, with players potentially coming soon. Team fees are also tracked and 
+                            easily viewed by administrative users.
+                        </p>
+                    </div> 
+                    <div class="card-col2">
+                        <img src="https://imgs.search.brave.com/R9RXtLXuIJpt96zTXZh9tzsgbyiat5vJ03eGaxfIxUg/rs:fit:660:225:1/g:ce/aHR0cHM6Ly90c2Uy/Lm1tLmJpbmcubmV0/L3RoP2lkPU9JUC5U/dS1xU0Zjb041VE1M/RTBiOTRXR2RnSGFG/VSZwaWQ9QXBp" alt="Rec league image" />
+                        <p class="link"><i class="fab fa-github"></i><a href="https://github.com/jcoffman9/Multi-Level-Paging" target="_blank" rel="noopener noreferrer">Source Code</a></p>
+                    </div>
+                </div>
+                <div class="car-card"> <!-- web development rev -->
+                    <div class="card-col1-rev">
+                        <!-- <img /> -->
+                        <p class="link"><i class="fab fa-github"></i><a href="#" target="_blank" rel="noopener noreferrer">Source Code</a></p>
+                    </div>
+                    <div class="card-col2-rev">
+                        <h2>Web Development</h2>
+                        <p>
+                            A series of projects has led to improving skills in html, css, javascript
+                            and php. Some of these include sites for a local bar rental business, dental
+                            practice, and a comedian.
+                        </p>
+                        <p>
+                            These projects in combination with other front-end work have shown 
+                            attention to detail, creative problem-solving, and ability to work well
+                            alongside clients. As a fantastic creative outlet, web development skills will
+                            always be something I strive to continously improve upon.
+                        </p>
+                    </div>
+                </div>
+                <div class="car-card"> <!-- wordle script -->
+                    <div class="card-col1">
+                        <h2>Wordle Script</h2>
+                        <p>
+                            A C program utilizing the potential solution list and regex to ruin 
+                            the game for those who desire minimal false self confidence from cheating
+                            at wordle.
+                        </p>
+                        <p>
+                            By entering the correct information gathered upon the first guess, the script
+                            will drastically limit the potential answers with each additional piece of
+                            information given by the game. Throughout testing there was never an instance
+                            where the game could not be solved in 5 guesses, with 4 being the most common
+                            result. With some good guessing 3 is possible, arising about 20% of the time.
+                        </p>
+                    </div>
+                    <div class="card-col2">
+                        <img src="https://imgs.search.brave.com/IQfUbpqd_j0z4qE8uicbS9ievMJZyFUzOaCArpvW62k/rs:fit:844:225:1/g:ce/aHR0cHM6Ly90c2U0/Lm1tLmJpbmcubmV0/L3RoP2lkPU9JUC5v/WHc0SFhGbExmVTRz/NTB2TFJsempBSGFF/SyZwaWQ9QXBp" alt="wordle image" />
+                        <p class="link"><i class="fab fa-github"></i><a href="#" target="_blank" rel="noopener noreferrer">Source Code</a></p>
+                    </div>
+                </div>
+                <div class="car-card"> <!-- space invaders od rev -->
+                    <div class="card-col1-rev">
+                    <p class="link"><i class="fab fa-github"></i><a href="#" target="_blank" rel="noopener noreferrer">Source Code</a></p>
+                    </div>
+                    <div class="card-col2-rev">
+                        <h2>Space Invaders Ovedrive</h2>
+                        <p>A C program utilizing the potential solution list that NYT has posted in combination with regex to attempt to cheat the game.</p>
+                        <p>In testing it never has taken more than 4 attempts to get the correct word. With some lucky starting guesses, 3 attempts is a common result.</p>
+                    </div>
+                </div>
+                <div class="car-card"> <!-- best help rev -->
+                    <div class="card-col1">
+                        <h2>Best Help (IP)</h2>
+                        <p>
+                            A personal web assistant application, meant to help users who can't afford
+                            therapy track their goals, finances, nutrition, as well as providing
+                            grocery deals near them. Built responsively, it will be as easily accessed
+                            as an app in todays world.
+                        </p>
+                        <p>
+                            One intriguing idea would be to take the finance and location data to show users
+                            if they could potentially qualify for government assistance programs. Additional
+                            ideas are hopefully coming down the pipeline, especially when users are able to
+                            give feedback as to what more they would desire from the service.
+                        </p>
+                    </div>
+                    <div class="card-col2">
+                        <p class="link"><i class="fab fa-github"></i><a href="#" target="_blank" rel="noopener noreferrer">Source Code</a></p>
+                    </div>
+                </div>
+                <div class="car-card"> <!-- stockscrape rev -->
+                    <div class="card-col1-rev">
+                        <p class="link"><i class="fab fa-github"></i><a href="#" target="_blank" rel="noopener noreferrer">Source Code</a></p>
+                    </div>
+                    <div class="card-col2-rev">
+                        <h2>Stockscrape (IP)</h2>
+                        <p>
+                            Program which inputs data from the Quiver Quantitative API to
+                            find relevant information concerning US representative/senator
+                            stock market activity and US government contracts.
+                        </p>
+                        <p>
+                            After the analysis of the data, the program exports selected
+                            data points to a discord server using the Discord API. The bot provides updates
+                            at intervals (or immediately should an extremely large trade occur) for paying
+                            customers.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <!-- end cards -->
+            <button class="carousel-btn next" id="next">></button>
+        </div>
+    </section>
+
+    <!-- footer section -->
+    <section class="footer-section">
+        <div class="footer-row">
+            <div class="footer-col">
+                <h3>Connect with me!</h3>
+                <ul>
+                    <li><a href="https://github.com/aidenaap" target="_blank" rel="noopener noreferrer">Github<i class="fab fa-github"></i></a></li>
+                    <li><a href="https://www.linkedin.com/in/aiden-perez/" target="_blank" rel="noopener noreferrer">LinkedIn<i class="fab fa-linkedin"></i></a></li>
+                    <li><a href="https://www.tiktok.com/@spicy_perez" target="_blank" rel="noopener noreferrer">TikTok<i class="fab fa-tiktok"></i></a></li>
+                    <li><a href="https://www.instagram.com/aiden_perez11/?hl=en" target="_blank" rel="noopener noreferrer">Instagram<i class="fab fa-instagram"></i></a></li>
+                    <li><a href="https://soundcloud.com/user-352529528" target="_blank" rel="noopener noreferrer">Soundcloud<i class="fab fa-soundcloud"></i></a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Other Fun Information</h3>
+                <ul>
+                    <li><a>Copyright Notice</a></li>
+                    <li><a>Privacy Policy</a></li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    
+</body>
+
+<!-- some good ol js bebe -->
+<script src="scripting/mainfile.js"></script>
+</html>

@@ -1,0 +1,433 @@
+@import url("https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@700&family=Montserrat&family=Playfair+Display&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: rgb(50, 50, 50);
+  font-family: "Montserrat";
+  text-decoration: none;
+  display: box;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+.left {
+  transform: translateX(-50%);
+}
+
+.right {
+  transform: translateX(50%);
+}
+
+.up {
+  transform: translateY(50%);
+}
+
+.down {
+  transform: translateY(-50%);
+}
+
+.fade-in {
+  opacity: 0;
+  transition: all 2s ease-out;
+}
+
+.fade-slower {
+  transition: all 3s ease-out;
+}
+
+.appear {
+  opacity: 1;
+  transform: translateX(0);
+  transform: translateY(0);
+}
+
+nav {
+  width: 100%;
+  background-color: rgb(0, 0, 0);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  -webkit-animation: fade-in 3s ease-out;
+          animation: fade-in 3s ease-out;
+}
+nav a {
+  text-decoration: none;
+  color: white;
+}
+nav .logo {
+  font-family: "Playfair";
+  color: rgb(203, 32, 32);
+  font-size: 72px;
+  padding: 10px;
+  margin-left: 20px;
+}
+nav ul {
+  list-style-type: none;
+  display: inline-flex;
+  align-items: center;
+  margin-right: 10px;
+}
+nav ul li {
+  padding: 10px;
+  margin-right: 10px;
+  font-size: 36px;
+}
+nav ul li a:hover {
+  color: rgb(203, 32, 32);
+}
+
+.footer-section {
+  width: 100%;
+  background: linear-gradient(rgb(20, 20, 20), rgb(50, 50, 50));
+  color: rgb(255, 255, 255);
+}
+.footer-section .footer-row {
+  display: flex;
+  border-top: 1px solid rgb(255, 255, 255);
+  padding-top: 20px;
+}
+.footer-section .footer-row .footer-col {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.footer-section .footer-row .footer-col h3 {
+  color: rgb(203, 32, 32);
+  padding-bottom: 20px;
+  font-size: 32px;
+}
+.footer-section .footer-row .footer-col ul {
+  list-style-type: none;
+  padding-left: 5px;
+}
+.footer-section .footer-row .footer-col ul li {
+  padding-bottom: 5px;
+  cursor: pointer;
+}
+.footer-section .footer-row .footer-col ul li a {
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+}
+.footer-section .footer-row .footer-col ul li a i {
+  padding-left: 7px;
+}
+.footer-section .footer-row .footer-col ul li a:hover {
+  color: rgb(203, 32, 32);
+}
+
+.intro-sw-section {
+  background-color: rgb(0, 0, 0);
+  height: 90vh;
+  overflow: hidden;
+  position: relative;
+  color: #ffc909;
+}
+.intro-sw-section .sw-credits {
+  display: flex;
+  height: 100%;
+  width: 80%;
+  margin: 0 auto;
+  perspective: 350px;
+}
+.intro-sw-section .sw-credits .sw-text {
+  color: #ffc909;
+  font-size: 3vw;
+  line-height: 1.5em;
+  font-weight: bold;
+  text-align: justify;
+  position: relative;
+  -webkit-animation: scroll 90s linear forwards;
+          animation: scroll 90s linear forwards;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+}
+.intro-sw-section .sw-credits .sw-text h1, .intro-sw-section .sw-credits .sw-text h4 {
+  text-align: center;
+  padding-bottom: 20px;
+  text-transform: uppercase;
+}
+.intro-sw-section .sw-credits .sw-text h1 {
+  font-size: 72px;
+}
+.intro-sw-section .sw-credits .sw-text p {
+  text-indent: 50px;
+}
+
+.sw-credits::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 40%;
+  background: linear-gradient(180deg, rgb(0, 0, 0) 40%, rgba(0, 0, 0, 0) 100%);
+}
+
+.intro-sw-section::before {
+  content: " ";
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.8;
+  background-image: url("https://imgs.search.brave.com/xvheYo2t3BDTIAh1LAfcoIxbmDedLfRmjPBZY_KFoj0/rs:fit:1200:1080:1/g:ce/aHR0cHM6Ly9qb29p/bm4uY29tL2ltYWdl/cy9lbXB0eS1zcGFj/ZS0xLnBuZw");
+  background-repeat: no-repeat;
+  background-position: 50% 0;
+  background-size: cover;
+}
+
+.about-section {
+  overflow-y: hidden;
+  display: flex;
+  margin: 40px;
+  padding-bottom: 10px;
+}
+.about-section .about-info-col {
+  width: 55%;
+  margin-right: 5%;
+  padding-top: 45px;
+}
+.about-section .about-info-col .about-tabs {
+  display: flex;
+  margin: 0px 7vw 40px 7vw;
+  justify-content: space-between;
+}
+.about-section .about-info-col .about-tabs p {
+  font-family: "Baskerville";
+  color: white;
+  font-size: 24px;
+  font-weight: 500;
+  cursor: pointer;
+  position: relative;
+}
+.about-section .about-info-col .about-tabs p::after {
+  content: "";
+  width: 0;
+  height: 5px;
+  background: rgb(203, 32, 32);
+  position: absolute;
+  left: 0;
+  bottom: -8px;
+  transition: 0.5s;
+}
+.about-section .about-info-col .about-tabs p:hover::after {
+  width: 70%;
+}
+.about-section .about-info-col .about-tabs .active-tab::after {
+  width: 100%;
+}
+.about-section .about-info-col .about-card {
+  display: none;
+}
+.about-section .about-info-col .active-link {
+  display: flex;
+  flex-direction: column;
+  border-left: 5px solid rgb(255, 255, 255);
+  border-bottom: 5px solid rgb(255, 255, 255);
+}
+.about-section .about-info-col .active-link h2 {
+  color: rgb(203, 32, 32);
+  padding: 15px;
+}
+.about-section .about-info-col .active-link h2 .date {
+  color: rgb(160, 27, 27);
+  font-size: 20px;
+}
+.about-section .about-info-col .active-link p {
+  padding: 0 30px;
+  color: rgb(255, 255, 255);
+  line-height: 25px;
+}
+.about-section .about-info-col .active-link p:last-child {
+  padding-bottom: 20px;
+}
+.about-section .about-pic-col {
+  width: 40%;
+  overflow: hidden;
+}
+.about-section .about-pic-col h1 {
+  color: rgb(203, 32, 32);
+  font-size: 42px;
+  text-indent: 30px;
+  padding-bottom: 10px;
+}
+.about-section .about-pic-col .pic-container {
+  border-top: 5px solid rgb(255, 255, 255);
+  border-right: 5px solid rgb(255, 255, 255);
+}
+.about-section .about-pic-col .pic-container #hockey-pic {
+  height: 80vh;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  transform: translateX(-25px);
+  padding-right: 20px;
+  padding-top: 20px;
+}
+
+.portfolio-section {
+  border-top: 1px solid rgb(255, 255, 255);
+  background-color: rgb(20, 20, 20);
+  height: 100vh;
+}
+.portfolio-section .carousel {
+  align-items: center;
+  display: flex;
+  overflow: hidden;
+  position: relative;
+  width: 100vw;
+}
+.portfolio-section .carousel .carousel-cards {
+  display: flex;
+  transform: translateX(0);
+  transition: transform 1s;
+}
+.portfolio-section .carousel .carousel-cards .car-card {
+  background-color: rgb(20, 20, 20);
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.portfolio-section .carousel .carousel-cards .car-card .card-col1, .portfolio-section .carousel .carousel-cards .car-card .card-col2-rev {
+  width: 50%;
+  margin: 10% 0;
+}
+.portfolio-section .carousel .carousel-cards .car-card .card-col1 h2, .portfolio-section .carousel .carousel-cards .car-card .card-col2-rev h2 {
+  color: rgb(203, 32, 32);
+  text-align: start;
+  font-size: 50px;
+  padding: 20px;
+}
+.portfolio-section .carousel .carousel-cards .car-card .card-col1 .small-header, .portfolio-section .carousel .carousel-cards .car-card .card-col2-rev .small-header {
+  font-size: 42px;
+}
+.portfolio-section .carousel .carousel-cards .car-card .card-col1 p, .portfolio-section .carousel .carousel-cards .car-card .card-col2-rev p {
+  color: rgb(255, 255, 255);
+  text-indent: 30px;
+  padding: 0 20px 20px 20px;
+}
+.portfolio-section .carousel .carousel-cards .car-card .card-col2, .portfolio-section .carousel .carousel-cards .car-card .card-col1-rev {
+  margin: 10% 0;
+  width: 30%;
+}
+.portfolio-section .carousel .carousel-cards .car-card .card-col2 iframe, .portfolio-section .carousel .carousel-cards .car-card .card-col2 img, .portfolio-section .carousel .carousel-cards .car-card .card-col1-rev iframe, .portfolio-section .carousel .carousel-cards .car-card .card-col1-rev img {
+  padding: 5px;
+  height: 200px;
+  width: 90%;
+  display: block;
+  margin: 0 auto;
+}
+.portfolio-section .carousel .carousel-cards .car-card .card-col2 iframe, .portfolio-section .carousel .carousel-cards .car-card .card-col2 img, .portfolio-section .carousel .carousel-cards .car-card .card-col2 .link, .portfolio-section .carousel .carousel-cards .car-card .card-col1-rev iframe, .portfolio-section .carousel .carousel-cards .car-card .card-col1-rev img, .portfolio-section .carousel .carousel-cards .car-card .card-col1-rev .link {
+  border: 3px solid rgb(0, 0, 0);
+  box-shadow: 2px 4px 4px rgb(0, 0, 0);
+}
+.portfolio-section .carousel .carousel-cards .car-card .card-col2 .link, .portfolio-section .carousel .carousel-cards .car-card .card-col1-rev .link {
+  margin: 20px auto;
+  padding: 10px;
+  width: 50%;
+  background-color: rgb(203, 32, 32);
+}
+.portfolio-section .carousel .carousel-cards .car-card .card-col2 .link a, .portfolio-section .carousel .carousel-cards .car-card .card-col1-rev .link a {
+  text-decoration: none;
+}
+.portfolio-section .carousel .carousel-cards .car-card .card-col2 .link i, .portfolio-section .carousel .carousel-cards .car-card .card-col1-rev .link i {
+  color: black;
+  font-size: 28px;
+  padding-right: 10px;
+}
+.portfolio-section .carousel .carousel-cards .car-card .port-header {
+  font-size: 63px;
+  color: rgb(255, 255, 255);
+}
+.portfolio-section .carousel .carousel-cards .car-card .link {
+  padding: 0;
+  text-align: center;
+  text-indent: 0;
+  text-decoration: none;
+  cursor: pointer;
+}
+.portfolio-section .carousel .carousel-cards .car-card .link a {
+  font-size: 20px;
+  color: rgb(0, 0, 0);
+}
+.portfolio-section .carousel .carousel-cards .car-card iframe {
+  padding-top: 5px;
+  height: 150px;
+  width: 300px;
+  display: block;
+  margin: 0 auto;
+}
+.portfolio-section .carousel .carousel-btn {
+  background-color: rgb(20, 20, 20);
+  border: 0;
+  border-radius: 3rem;
+  color: white;
+  cursor: pointer;
+  font-size: 42px;
+  font-weight: bold;
+  height: 70px;
+  width: 70px;
+  opacity: 0.5;
+  position: absolute;
+  transition: opacity 0.25s;
+  z-index: 3;
+}
+.portfolio-section .carousel .previous {
+  left: 25px;
+}
+.portfolio-section .carousel .next {
+  right: 25px;
+}
+.portfolio-section .carousel .carousel-btn:hover {
+  opacity: 0.75;
+  color: rgb(203, 32, 32);
+  border: 2px solid rgb(255, 255, 255);
+}
+
+@-webkit-keyframes scroll {
+  from {
+    top: 800px;
+    transform: translateZ(0) rotateX(20deg);
+  }
+  to {
+    top: -7000px;
+    transform: translateZ(-2500px) rotateX(21deg);
+  }
+}
+
+@keyframes scroll {
+  from {
+    top: 800px;
+    transform: translateZ(0) rotateX(20deg);
+  }
+  to {
+    top: -7000px;
+    transform: translateZ(-2500px) rotateX(21deg);
+  }
+}
+@-webkit-keyframes fade-in {
+  from {
+    opacity: 0%;
+  }
+  to {
+    opacity: 100%;
+  }
+}
+@keyframes fade-in {
+  from {
+    opacity: 0%;
+  }
+  to {
+    opacity: 100%;
+  }
+}/*# sourceMappingURL=styles.css.map */

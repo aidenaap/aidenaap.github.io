@@ -1,0 +1,498 @@
+// google fonts (Montserrat, Baskerville, Playfair)
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@700&family=Montserrat&family=Playfair+Display&display=swap');
+
+// variables
+$greyish: rgb(50, 50, 50);
+$aztec: rgb(203, 32, 32);
+$dark-aztec: rgb(160, 27, 27);
+$star-wars: #ffc909;
+
+// basic structure
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: $greyish;
+    font-family: 'Montserrat';
+    text-decoration: none;
+    display: box;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+// ==== Animations Onscroll ==== //
+// movement around screen
+.left {
+    transform: translateX(-50%);
+}
+
+.right {
+    transform: translateX(50%);
+}
+
+.up {
+    transform: translateY(50%);
+}
+
+.down {
+    transform: translateY(-50%);
+}
+
+// fades
+.fade-in {
+    opacity: 0;
+    transition: all 2s ease-out;
+}
+
+.fade-slower {
+    transition: all 3s ease-out;
+}
+
+// show all animations
+.appear {
+    opacity: 1;
+    transform: translateX(0);
+    transform: translateY(0);
+}
+
+// === navbar / footer === //
+// Navbar
+nav {
+    width: 100%;
+    background-color: rgb(0, 0, 0);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    animation: fade-in 3s ease-out;
+
+    a {
+        text-decoration: none;
+        color: white;
+    }
+
+    .logo {
+        font-family: 'Playfair';
+        color: $aztec;
+        font-size: 72px;
+        padding: 10px;
+        margin-left: 20px;
+    }
+
+    ul {
+        list-style-type: none;
+        display: inline-flex;
+        align-items: center;
+        margin-right: 10px;
+        
+        li {
+            padding: 10px;
+            margin-right: 10px;
+            font-size: 36px;
+
+            a:hover {
+                color: $aztec;
+            }
+        }
+    }
+}
+
+// Footer
+.footer-section {
+    width: 100%;
+    background: linear-gradient(rgb(20, 20, 20), $greyish);
+    color: rgb(255,255,255);
+
+    // bottom additional information
+    .footer-row {
+        display: flex;
+        border-top: 1px solid rgb(255,255,255);
+        padding-top: 20px;
+
+        .footer-col {
+            width: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 20px;
+
+            h3 {
+                color: $aztec;
+                padding-bottom: 20px;
+                font-size: 32px;
+            }
+
+            ul {
+                list-style-type: none;
+                padding-left: 5px;
+
+                li {
+                    padding-bottom: 5px;
+                    cursor: pointer;
+
+                    a {
+                        color: rgb(255,255,255);
+                        text-decoration: none;
+    
+                        i {
+                            padding-left: 7px;
+                        }
+                    }
+
+                    a:hover {
+                        color: $aztec;
+                    }
+                }
+            }
+        }
+    }
+}
+
+// INDEX.HTML
+// === Intro === //
+// star wars style intro
+.intro-sw-section {
+    background-color: rgb(0, 0, 0);
+    height: 90vh;
+    overflow: hidden;
+    position: relative;
+    color: $star-wars;
+
+    .sw-credits {
+        display: flex;
+        height: 100%;
+        width: 80%;
+        margin: 0 auto;
+        perspective: 350px;
+
+        .sw-text {
+            color: $star-wars;
+            font-size: 3vw;
+            line-height: 1.5em;
+            font-weight: bold;
+            text-align: justify;
+            position: relative;
+            animation: scroll 90s linear forwards;
+            animation-iteration-count: infinite;
+
+            h1, h4 {
+                text-align: center;
+                padding-bottom: 20px;
+                text-transform: uppercase;
+            }
+            
+            h1 {
+                font-size: 72px;
+            }
+            p {
+                text-indent: 50px;
+            }
+        }
+    }
+}
+
+// gradient to fade out
+.sw-credits::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 40%;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 1) 40%, rgba(0, 0, 0, 0) 100%);
+}
+
+// background
+.intro-sw-section::before {
+    content: ' ';
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.8;
+    background-image: url('https://imgs.search.brave.com/xvheYo2t3BDTIAh1LAfcoIxbmDedLfRmjPBZY_KFoj0/rs:fit:1200:1080:1/g:ce/aHR0cHM6Ly9qb29p/bm4uY29tL2ltYWdl/cy9lbXB0eS1zcGFj/ZS0xLnBuZw');
+    background-repeat: no-repeat;
+    background-position: 50% 0;
+    background-size: cover;
+}
+
+// === Skills About === //
+.about-section {
+    overflow-y: hidden;
+    display: flex;
+    margin: 40px;
+    padding-bottom: 10px;
+    
+    .about-info-col {
+        width: 55%;
+        margin-right: 5%;
+        padding-top: 45px;
+
+        .about-tabs {
+            display: flex;
+            margin: 0px 7vw 40px 7vw;
+            justify-content: space-between;
+
+            p {
+                font-family: 'Baskerville';
+                color: white;
+                font-size: 24px;
+                font-weight: 500;
+                cursor: pointer;
+                position: relative;
+            }
+
+            p::after {
+                content: '';
+                width: 0;
+                height: 5px;
+                background: $aztec;
+                position: absolute;
+                left: 0;
+                bottom: -8px;
+                transition: 0.5s;
+            }
+
+            p:hover::after {
+                width: 70%;
+            }
+
+            .active-tab::after {
+                width: 100%;
+            }
+        }
+
+        .about-card {
+            display: none;
+        }
+
+        .active-link {
+            display: flex;
+            flex-direction: column;
+            border-left: 5px solid rgb(255, 255, 255);
+            border-bottom: 5px solid rgb(255, 255, 255);
+
+            h2 {
+                color: $aztec;
+                padding: 15px;
+
+                .date {
+                    color: $dark-aztec;
+                    font-size: 20px;
+                }
+            }
+
+            p {
+                padding: 0 30px;
+                color: rgb(255,255,255);
+                line-height: 25px;
+            }
+
+            p:last-child {
+                padding-bottom: 20px;
+            }
+        }
+    }
+
+    .about-pic-col {
+        width: 40%;
+        overflow: hidden;
+
+        h1 {
+            color: $aztec;
+            font-size: 42px;
+            text-indent: 30px;
+            padding-bottom: 10px;
+        }
+
+        .pic-container {
+            border-top: 5px solid rgb(255, 255, 255);
+            border-right: 5px solid rgb(255, 255, 255);
+            
+            #hockey-pic {
+                height: 80vh;
+                width: 100%;
+                object-fit: cover;
+                transform: translateX(-25px);
+                padding-right: 20px;
+                padding-top : 20px;
+            }
+        }
+    }
+}
+
+// === Portfolio === //
+.portfolio-section {
+    border-top: 1px solid rgb(255,255,255);
+    background-color:rgb(20, 20, 20);
+    height: 100vh;
+
+    // portfolio carousel
+    .carousel {
+        align-items: center;
+        display: flex;
+        overflow: hidden;
+        position: relative;
+        width: 100vw;
+       
+
+        .carousel-cards {
+            display: flex;
+            transform: translateX(0);
+            transition: transform 1s;
+
+            // dont touch any of that nonsense
+            .car-card {
+                background-color: rgb(20, 20, 20);
+                height: 100vh;
+                width: 100vw;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                
+                // title and description
+                .card-col1, .card-col2-rev {
+                    width: 50%;
+                    margin: 10% 0;
+
+                    h2 {
+                        color: $aztec;
+                        text-align: start;
+                        font-size: 50px;
+                        padding: 20px;
+                    }
+
+                    .small-header {
+                        font-size: 42px;
+                    }
+
+                    p {
+                        color: rgb(255,255,255);
+                        text-indent: 30px;
+                        padding:0 20px 20px 20px;
+                    }
+                }
+
+                // image/video and source code
+                .card-col2, .card-col1-rev {
+                    margin: 10% 0;
+                    width: 30%;
+
+                    iframe, img {
+                        padding: 5px;
+                        height: 200px;
+                        width: 90%;
+                        display: block;
+                        margin: 0 auto;
+                    }
+
+                    iframe, img, .link {
+                        border: 3px solid rgb(0, 0, 0);
+                        box-shadow: 2px 4px 4px rgb(0, 0, 0);
+                    }
+
+                    .link {
+                        margin: 20px auto;
+                        padding: 10px;
+                        width: 50%;
+                        background-color: $aztec;
+                        
+                        a {
+                            text-decoration: none;
+                        }
+
+                        i {
+                            color: black;
+                            font-size: 28px;
+                            padding-right: 10px;
+                        }
+                    }
+                }
+
+                
+
+                .port-header {
+                    font-size: 63px;
+                    color: rgb(255,255,255);
+                }
+
+                .link {
+                    padding: 0;
+                    text-align: center;
+                    text-indent: 0;
+                    text-decoration: none;
+                    cursor: pointer;
+
+                    a {
+                        font-size: 20px;
+                        color: rgb(0,0,0);
+                    }
+                }
+
+                iframe {
+                    padding-top: 5px;
+                    height: 150px;
+                    width: 300px;
+                    display: block;
+                    margin: 0 auto;
+                }
+            }
+        }
+
+        .carousel-btn {
+            background-color: rgb(20, 20, 20);
+            border: 0;
+            border-radius: 3rem;
+            color: white;
+            cursor: pointer;
+            font-size: 42px;
+            font-weight: bold;
+            height: 70px;
+            width: 70px;
+            opacity: 0.50;
+            position: absolute;
+            transition: opacity 0.25s;
+            z-index: 3;
+        }
+
+        .previous {
+            left: 25px;
+        }
+            
+        .next {
+            right: 25px;
+        }
+
+        .carousel-btn:hover {
+            opacity: 0.75;
+            color: $aztec;
+            border: 2px solid rgb(255,255,255);
+        }
+    }
+}
+
+// ===== Animations =====
+// star wars scroll
+@keyframes scroll {
+    from {
+        top: 800px;
+        transform: translateZ(0) rotateX(20deg);
+    } to {
+        top: -7000px;
+        transform: translateZ(-2500px) rotateX(21deg);
+    }
+}
+
+// navbar fade-in
+@keyframes fade-in {
+    from {
+        opacity: 0%;
+    }
+    to {
+        opacity: 100%;
+    }
+}
