@@ -91,7 +91,7 @@ nav {
         li {
             padding: 10px;
             margin-right: 10px;
-            font-size: 36px;
+            font-size: 28px;
 
             a:hover {
                 color: $aztec;
@@ -101,60 +101,93 @@ nav {
 }
 
 // Footer
-.footer-section {
-    width: 100%;
-    background: linear-gradient(rgb(20, 20, 20), $greyish);
+.footer {
+    border-top: 1px solid rgb(255,255,255);
+    background: linear-gradient(rgb(20, 20, 20), rgb(0, 0, 0));
     color: rgb(255,255,255);
 
-    // bottom additional information
-    .footer-row {
+    .foot-icon-row, .foot-info-row {
         display: flex;
-        border-top: 1px solid rgb(255,255,255);
-        padding-top: 20px;
+        justify-content: space-between;
+        list-style-type: none;
+        align-items: center;
+        padding: 20px 15vw;
 
-        .footer-col {
-            width: 50%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin-bottom: 20px;
+        .icon, .info-item {
+            text-decoration: none;
+            color: rgb(255,255,255);
+            font-size: 28px;
+            transition: all 200ms ease-in-out;
+        }
 
-            h3 {
-                color: $aztec;
-                padding-bottom: 20px;
-                font-size: 32px;
-            }
+        .icon:hover {
+            color: $aztec;
+            font-size: 32px;
+        }
+    }
 
-            ul {
-                list-style-type: none;
-                padding-left: 5px;
+    .foot-info-row {
+        justify-content: center;
 
-                li {
-                    padding-bottom: 5px;
-                    cursor: pointer;
-
-                    a {
-                        color: rgb(255,255,255);
-                        text-decoration: none;
-    
-                        i {
-                            padding-left: 7px;
-                        }
-                    }
-
-                    a:hover {
-                        color: $aztec;
-                    }
-                }
-            }
+        .info-item {
+            font-size: 18px;
+            border-left: 1px solid rgb(255, 255, 255);
+            padding: 0 10px;
+        }
+        .info-item:last-child {
+            border-right: 1px solid rgb(255, 255, 255);
+        }
+        .info-item:hover {
+            font-size: 20px;
+            color: $aztec;
         }
     }
 }
 
 // INDEX.HTML
-// === Intro === //
+// === Small Screen Intro === //
+.intro-hero-section {
+    width: 100%;
+    height: 85vh;
+    background-color: rgb(0, 0, 0);
+    display: flex;
+    justify-content: end;
+    align-items: center;
+
+    .small-hero-title {
+        width: 60%;
+        color: white;
+        margin: 20px;
+        text-align: center;
+
+        h1 {
+            font-size: 42px;
+            color: $aztec;
+        }
+
+        h3 {
+            font-size: 20px;
+        }
+    }
+}
+
+.intro-hero-desc {
+    background-color: rgb(0,0,0);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    padding: 30px;
+
+    p {
+        text-indent: 30px;
+    }
+}
+
+// === Large Screen Intro === //
 // star wars style intro
 .intro-sw-section {
+    display: none;
     background-color: rgb(0, 0, 0);
     height: 90vh;
     overflow: hidden;
@@ -224,11 +257,26 @@ nav {
 .about-section {
     overflow-y: hidden;
     display: flex;
+    flex-wrap: wrap;
     margin: 40px;
     padding-bottom: 10px;
+
+    h1 {
+        color: $aztec;
+        font-size: 36px;
+    }
+
+    .about-desc {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        text-indent: 30px;
+        padding-top: 15px;
+    }
     
     .about-info-col {
-        width: 55%;
+        width: 100%;
         margin-right: 5%;
         padding-top: 45px;
 
@@ -299,6 +347,7 @@ nav {
     }
 
     .about-pic-col {
+        display: none;
         width: 40%;
         overflow: hidden;
 
@@ -339,7 +388,6 @@ nav {
         position: relative;
         width: 100vw;
        
-
         .carousel-cards {
             display: flex;
             transform: translateX(0);
@@ -362,13 +410,13 @@ nav {
                     h2 {
                         color: $aztec;
                         text-align: start;
-                        font-size: 50px;
+                        font-size: 6vw;
                         padding: 20px;
                     }
 
-                    .small-header {
-                        font-size: 42px;
-                    }
+                    // .small-header {
+                    //     font-size: 42px;
+                    // }
 
                     p {
                         color: rgb(255,255,255);
@@ -403,6 +451,8 @@ nav {
                         
                         a {
                             text-decoration: none;
+                            color: rgb(0, 0, 0);
+                            font-size: 24px;
                         }
 
                         i {
@@ -413,32 +463,11 @@ nav {
                     }
                 }
 
-                
-
                 .port-header {
-                    font-size: 63px;
-                    color: rgb(255,255,255);
-                }
-
-                .link {
-                    padding: 0;
+                    font-size: 42px;
                     text-align: center;
-                    text-indent: 0;
-                    text-decoration: none;
-                    cursor: pointer;
-
-                    a {
-                        font-size: 20px;
-                        color: rgb(0,0,0);
-                    }
-                }
-
-                iframe {
-                    padding-top: 5px;
-                    height: 150px;
-                    width: 300px;
-                    display: block;
-                    margin: 0 auto;
+                    color: rgb(255,255,255);
+                    padding: 0 45px;
                 }
             }
         }
@@ -471,6 +500,7 @@ nav {
             opacity: 0.75;
             color: $aztec;
             border: 2px solid rgb(255,255,255);
+            transition: all 500ms ease-out;
         }
     }
 }
@@ -495,4 +525,66 @@ nav {
     to {
         opacity: 100%;
     }
+}
+
+// ===== Responsive Actions ===== //
+@media screen and (min-width: 0px) { // nada
+
+}
+
+@media screen and (min-width: 482px) { // nada
+
+}
+
+@media screen and (min-width: 642px) {
+    // up nav font size
+    nav > ul > li {
+        font-size: 36px;
+    }
+
+    // hide small hero and show star wars
+    .intro-hero-section, .intro-hero-desc { // hide
+        display: none;
+    }
+    .intro-sw-section { // show
+        display: block;
+    }
+
+    // hide small about description
+    .about-section > .about-desc {
+        display: none;
+    }
+
+}
+
+@media screen and (min-width: 962px) {
+    // === About section === //
+    .about-section > h1 { // hide About Me title
+        display: none;
+    }
+    .about-section > .about-info-col { // change info col width
+        width: 55%;
+        margin-right: 5%;
+    }
+    .about-section > .about-pic-col { // show about pic col
+        display: block;
+    }
+
+    // === Portfolio section === //
+    .portfolio-section > .carousel > .carousel-cards > .car-card > .port-header {
+        font-size: 54px;
+
+        .maincard-break {
+            display: none;
+        }
+    }
+
+    // footer changes
+    .footer > .foot-icon-row, .foot-info-row {
+        padding: 20px 25vw;
+    }
+}
+
+@media screen and (min-width: 1026px) {
+
 }

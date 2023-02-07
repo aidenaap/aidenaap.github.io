@@ -45,7 +45,7 @@
                 </p>
                 </br>
                 <p>
-                    Some life experiences that fall outside the norm of a typical CS student include working in teams my entire life and working as an entertainer.
+                    Some life experiences that fall outside the norm of a typical CS student include working in teams my entire life and as an entertainer.
                     Playing hockey for over 15 years made me extremely comfortable working and excelling in teams. It also provided valuable leadership experience
                     after being chosen as the captain of my varsity team for 2 years. Throughout constantly rallying a group of 20 teenagers and their parents, my 
                     communication skills drastically improved. Desiring to hone the ability more, I chose to take up odd jobs in college. Working as a trivia host
@@ -65,8 +65,23 @@
         </div>
     </section>
 
+    <!-- small screen hero section -->
+    <section class="intro-hero-section">
+        <div class="small-hero-title">
+            <h1>Aiden Perez</h1>
+            <h3>The Most Interesting Dev in the World</h3>
+        </div>
+    </section>
+
     <!-- about section -->
     <section class="about-section">
+        <!-- small version has no pic col, flex column, and description -->
+        <h1 class="fade-in">About Me</h1>
+        <p class="about-desc">
+            Hello! I'm a motivated, creative software developer always looking for new opportunities to develop and apply my current skillset.
+            With over five years in programming to build up a strong foundation in data structures, algorithms, and object-oriented programming,
+            I am confident in my abilities to efficiently solve any complex problem.
+        </p>
         <div class="about-info-col fade-in fade-slower left">
             <div class="about-tabs">
                 <p onclick="openEducationTab()" id="education-tab" class="active-tab">Education</p>
@@ -133,6 +148,7 @@
                 </p>
             </div>
         </div>
+        <!-- this whole column is gone until larger screen reached -->
         <div class="about-pic-col fade-in right">
             <h1>About Me</h1>
             <div class="pic-container">
@@ -148,7 +164,7 @@
             <!-- carousel cards -->
             <div class="carousel-cards active">
                 <div class="car-card"> <!-- intro card --> 
-                    <h2 class="port-header fade-in fade-slower">Check Out Some Projects!</h2>
+                    <h2 class="port-header fade-in fade-slower">Check Out <br class="maincard-break" />Some Projects!</h2>
                 </div>
                 <div class="car-card"> <!-- rpi incrementor -->
                     <div class="card-col1">
@@ -202,7 +218,7 @@
                         <p class="link"><i class="fab fa-github"></i><a href="https://github.com/jcoffman9/Multi-Level-Paging" target="_blank" rel="noopener noreferrer">Source Code</a></p>
                     </div>
                 </div>
-                <div class="car-card"> <!-- web development rev -->
+                <div class="car-card"> <!-- web development rev (no pic)-->
                     <div class="card-col1-rev">
                         <!-- <img /> -->
                         <p class="link"><i class="fab fa-github"></i><a href="#" target="_blank" rel="noopener noreferrer">Source Code</a></p>
@@ -243,22 +259,27 @@
                         <p class="link"><i class="fab fa-github"></i><a href="#" target="_blank" rel="noopener noreferrer">Source Code</a></p>
                     </div>
                 </div>
-                <div class="car-card"> <!-- space invaders od rev -->
+                <div class="car-card"> <!-- space invaders od rev (no good pic)-->
                     <div class="card-col1-rev">
-                    <p class="link"><i class="fab fa-github"></i><a href="#" target="_blank" rel="noopener noreferrer">Source Code</a></p>
+                        <img src="https://play-lh.googleusercontent.com/0goocG7RJZDZ41ShfBPl-h7ctwHKHjqzn4nSImyL8_RWyXqeYNKw-CdGAKhgPGZG5Es" alt="space invaders pic" />
+                        <p class="link"><i class="fab fa-github"></i><a href="#" target="_blank" rel="noopener noreferrer">Source Code</a></p>
                     </div>
                     <div class="card-col2-rev">
                         <h2>Space Invaders Ovedrive</h2>
-                        <p>A C program utilizing the potential solution list that NYT has posted in combination with regex to attempt to cheat the game.</p>
-                        <p>In testing it never has taken more than 4 attempts to get the correct word. With some lucky starting guesses, 3 attempts is a common result.</p>
+                        <p>
+                            Quick experimentation with pygame to make a version of space invaders where
+                            the user can move all four directions rather than 2, and make the ships slightly
+                            harder. Powerups are also in the game, with users being able to hit certain targets
+                            after an interval to gain extra lasers.
+                        </p>
                     </div>
                 </div>
-                <div class="car-card"> <!-- best help rev -->
+                <div class="car-card"> <!-- best help rev (no pic)-->
                     <div class="card-col1">
                         <h2>Best Help (IP)</h2>
                         <p>
-                            A personal web assistant application, meant to help users who can't afford
-                            therapy track their goals, finances, nutrition, as well as providing
+                            A personal web assistant application, meant to help users
+                            track their goals, finances, nutrition, as well as providing
                             grocery deals near them. Built responsively, it will be as easily accessed
                             as an app in todays world.
                         </p>
@@ -275,6 +296,7 @@
                 </div>
                 <div class="car-card"> <!-- stockscrape rev -->
                     <div class="card-col1-rev">
+                        <img src="https://play-lh.googleusercontent.com/TnAqbtFVHisOkNe0TnmtBuGk8jLIyCh2adAZ3b9K1voeh7G-6UrurM7RPzB_kDz0nWM" alt="stock pic" />
                         <p class="link"><i class="fab fa-github"></i><a href="#" target="_blank" rel="noopener noreferrer">Source Code</a></p>
                     </div>
                     <div class="card-col2-rev">
@@ -299,30 +321,22 @@
     </section>
 
     <!-- footer section -->
-    <section class="footer-section">
-        <div class="footer-row">
-            <div class="footer-col">
-                <h3>Connect with me!</h3>
-                <ul>
-                    <li><a href="https://github.com/aidenaap" target="_blank" rel="noopener noreferrer">Github<i class="fab fa-github"></i></a></li>
-                    <li><a href="https://www.linkedin.com/in/aiden-perez/" target="_blank" rel="noopener noreferrer">LinkedIn<i class="fab fa-linkedin"></i></a></li>
-                    <li><a href="https://www.tiktok.com/@spicy_perez" target="_blank" rel="noopener noreferrer">TikTok<i class="fab fa-tiktok"></i></a></li>
-                    <li><a href="https://www.instagram.com/aiden_perez11/?hl=en" target="_blank" rel="noopener noreferrer">Instagram<i class="fab fa-instagram"></i></a></li>
-                    <li><a href="https://soundcloud.com/user-352529528" target="_blank" rel="noopener noreferrer">Soundcloud<i class="fab fa-soundcloud"></i></a></li>
-                </ul>
-            </div>
-            <div class="footer-col">
-                <h3>Other Fun Information</h3>
-                <ul>
-                    <li><a>Copyright Notice</a></li>
-                    <li><a>Privacy Policy</a></li>
-                </ul>
-            </div>
-        </div>
+    <section class="footer">
+        <ul class="foot-icon-row">
+            <li><a class="icon" href="https://github.com/aidenaap" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a></li>
+            <li><a class="icon" href="https://www.linkedin.com/in/aiden-perez/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a></li>
+            <li><a class="icon" href="https://www.tiktok.com/@spicy_perez" target="_blank" rel="noopener noreferrer"><i class="fab fa-tiktok"></i></a></li>
+            <li><a class="icon" href="https://www.instagram.com/aiden_perez11/?hl=en" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a></li>
+            <li><a class="icon" href="https://soundcloud.com/user-352529528" target="_blank" rel="noopener noreferrer"><i class="fab fa-soundcloud"></i></a></li>
+        </ul>
+        <ul class="foot-info-row">
+            <li><a class="info-item" href="#">Copyright Notice</a></li>
+            <li><a class="info-item" href="#">Privacy Policy</a></li>
+        </ul>
     </section>
-    
+
 </body>
 
-<!-- some good ol js bebe -->
+<!-- some good ol js bb -->
 <script src="scripting/mainfile.js"></script>
 </html>
