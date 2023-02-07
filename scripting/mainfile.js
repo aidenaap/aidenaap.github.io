@@ -78,19 +78,18 @@ const observer = new IntersectionObserver((entries) => {
   // tracking where user is in the carousel
   let imageIndex = 1;
   let translateX = 0;
-  let totalWidth = screen.width;
   
   carouselButtons.forEach(button => {
       button.addEventListener('click', (event) => {
         if (event.target.id === 'previous') {
           if (imageIndex !== 1) {
             imageIndex--;
-            translateX += totalWidth;
+            translateX += window.innerWidth;
           }
         } else {
           if (imageIndex !== numberOfCards) {
             imageIndex++;
-            translateX -= totalWidth;
+            translateX -= window.innerWidth;
           }
         }
         
