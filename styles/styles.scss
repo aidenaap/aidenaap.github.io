@@ -29,15 +29,12 @@ body {
 .left {
     transform: translateX(-50%);
 }
-
 .right {
     transform: translateX(50%);
 }
-
 .up {
     transform: translateY(50%);
 }
-
 .down {
     transform: translateY(-50%);
 }
@@ -59,7 +56,7 @@ body {
     transform: translateY(0);
 }
 
-// === navbar / footer === //
+// === navbar & footer === //
 // Navbar
 nav {
     width: 100%;
@@ -144,7 +141,7 @@ nav {
     }
 }
 
-// INDEX.HTML
+
 // === Small Screen Intro === //
 .intro-hero-section {
     width: 100%;
@@ -170,7 +167,6 @@ nav {
         }
     }
 }
-
 .intro-hero-desc {
     background-color: rgb(0,0,0);
     display: flex;
@@ -183,6 +179,7 @@ nav {
         text-indent: 30px;
     }
 }
+
 
 // === Large Screen Intro === //
 // star wars style intro
@@ -379,6 +376,7 @@ nav {
     }
 }
 
+
 // === Portfolio === //
 .portfolio-section {
     border-top: 1px solid rgb(255,255,255);
@@ -459,6 +457,7 @@ nav {
                         margin: 10px auto;
                         background-color: $aztec;
                         text-align: center;
+                        cursor: pointer;
                         
                         a {
                             text-decoration: none;
@@ -517,6 +516,7 @@ nav {
     }
 }
 
+
 // ===== Animations =====
 // star wars scroll
 @keyframes scroll {
@@ -573,7 +573,7 @@ nav {
 
 }
 
-@media screen and (min-width: 962px) {
+@media screen and (min-width: 962px) { // show about pic col, 
     // === About section === //
     .about-section > h1 { // hide About Me title
         display: none;
@@ -583,7 +583,7 @@ nav {
         width: 55%;
         margin-right: 5%;
     }
-    .about-section > .about-pic-col { // show about pic col
+    .about-section > .about-pic-col { // show about pic col, change portolio style
         display: block;
     }
 

@@ -389,6 +389,7 @@ nav ul li a:hover {
   margin: 10px auto;
   background-color: rgb(203, 32, 32);
   text-align: center;
+  cursor: pointer;
 }
 .portfolio-section .carousel .carousel-cards .car-card .card-col2 .link a, .portfolio-section .carousel .carousel-cards .car-card .card-col1-rev .link a {
   text-decoration: none;
