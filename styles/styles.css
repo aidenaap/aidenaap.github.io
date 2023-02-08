@@ -220,9 +220,10 @@ nav ul li a:hover {
   margin: 40px;
   padding-bottom: 10px;
 }
-.about-section h1 {
+.about-section .small-about-title {
   color: rgb(203, 32, 32);
   font-size: 36px;
+  border-bottom: 8px solid rgb(0, 0, 0);
 }
 .about-section .about-desc {
   display: flex;
@@ -254,7 +255,7 @@ nav ul li a:hover {
   content: "";
   width: 0;
   height: 5px;
-  background: rgb(203, 32, 32);
+  background: rgb(0, 0, 0);
   position: absolute;
   left: 0;
   bottom: -8px;
@@ -272,24 +273,28 @@ nav ul li a:hover {
 .about-section .about-info-col .active-link {
   display: flex;
   flex-direction: column;
-  border-left: 5px solid rgb(255, 255, 255);
-  border-bottom: 5px solid rgb(255, 255, 255);
+  border-left: 5px solid rgb(0, 0, 0);
+  border-bottom: 5px solid rgb(0, 0, 0);
+  padding-bottom: 10px;
 }
 .about-section .about-info-col .active-link h2 {
   color: rgb(203, 32, 32);
   padding: 15px;
 }
+.about-section .about-info-col .active-link h2 .long-form-title {
+  display: none;
+}
 .about-section .about-info-col .active-link h2 .date {
   color: rgb(160, 27, 27);
   font-size: 20px;
 }
-.about-section .about-info-col .active-link p {
-  padding: 0 30px;
-  color: rgb(255, 255, 255);
-  line-height: 25px;
+.about-section .about-info-col .active-link ul {
+  list-style-type: disc;
+  color: white;
+  margin: 0 0 10px 45px;
 }
-.about-section .about-info-col .active-link p:last-child {
-  padding-bottom: 20px;
+.about-section .about-info-col .active-link ul li {
+  padding-top: 2px;
 }
 .about-section .about-pic-col {
   display: none;
@@ -303,8 +308,8 @@ nav ul li a:hover {
   padding-bottom: 10px;
 }
 .about-section .about-pic-col .pic-container {
-  border-top: 5px solid rgb(255, 255, 255);
-  border-right: 5px solid rgb(255, 255, 255);
+  border-top: 5px solid rgb(0, 0, 0);
+  border-right: 5px solid rgb(0, 0, 0);
 }
 .about-section .about-pic-col .pic-container #hockey-pic {
   height: 80vh;
@@ -338,27 +343,34 @@ nav ul li a:hover {
   height: 100vh;
   width: 100vw;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 .portfolio-section .carousel .carousel-cards .car-card .card-col1, .portfolio-section .carousel .carousel-cards .car-card .card-col2-rev {
-  width: 50%;
-  margin: 10% 0;
+  width: 80%;
+  margin: 0 auto;
 }
 .portfolio-section .carousel .carousel-cards .car-card .card-col1 h2, .portfolio-section .carousel .carousel-cards .car-card .card-col2-rev h2 {
   color: rgb(203, 32, 32);
-  text-align: start;
+  text-align: center;
   font-size: 6vw;
-  padding: 20px;
+  padding-bottom: 10px;
 }
 .portfolio-section .carousel .carousel-cards .car-card .card-col1 p, .portfolio-section .carousel .carousel-cards .car-card .card-col2-rev p {
   color: rgb(255, 255, 255);
   text-indent: 30px;
-  padding: 0 20px 20px 20px;
+  padding-bottom: 7px;
+}
+.portfolio-section .carousel .carousel-cards .car-card .card-col1 p:last-child, .portfolio-section .carousel .carousel-cards .car-card .card-col2-rev p:last-child {
+  padding-bottom: 15px;
+}
+.portfolio-section .carousel .carousel-cards .car-card .card-col1 .large-screen-p, .portfolio-section .carousel .carousel-cards .car-card .card-col2-rev .large-screen-p {
+  display: none;
 }
 .portfolio-section .carousel .carousel-cards .car-card .card-col2, .portfolio-section .carousel .carousel-cards .car-card .card-col1-rev {
-  margin: 10% 0;
-  width: 30%;
+  width: 80%;
+  margin: 0 auto;
 }
 .portfolio-section .carousel .carousel-cards .car-card .card-col2 iframe, .portfolio-section .carousel .carousel-cards .car-card .card-col2 img, .portfolio-section .carousel .carousel-cards .car-card .card-col1-rev iframe, .portfolio-section .carousel .carousel-cards .car-card .card-col1-rev img {
   padding: 5px;
@@ -372,10 +384,11 @@ nav ul li a:hover {
   box-shadow: 2px 4px 4px rgb(0, 0, 0);
 }
 .portfolio-section .carousel .carousel-cards .car-card .card-col2 .link, .portfolio-section .carousel .carousel-cards .car-card .card-col1-rev .link {
-  margin: 20px auto;
   padding: 10px;
-  width: 50%;
+  width: 40%;
+  margin: 10px auto;
   background-color: rgb(203, 32, 32);
+  text-align: center;
 }
 .portfolio-section .carousel .carousel-cards .car-card .card-col2 .link a, .portfolio-section .carousel .carousel-cards .car-card .card-col1-rev .link a {
   text-decoration: none;
@@ -399,20 +412,20 @@ nav ul li a:hover {
   border-radius: 3rem;
   color: white;
   cursor: pointer;
-  font-size: 42px;
+  font-size: 28px;
   font-weight: bold;
-  height: 70px;
-  width: 70px;
+  height: 40px;
+  width: 40px;
   opacity: 0.5;
   position: absolute;
   transition: opacity 0.25s;
   z-index: 3;
 }
 .portfolio-section .carousel .previous {
-  left: 25px;
+  left: 15px;
 }
 .portfolio-section .carousel .next {
-  right: 25px;
+  right: 15px;
 }
 .portfolio-section .carousel .carousel-btn:hover {
   opacity: 0.75;
@@ -452,10 +465,14 @@ nav ul li a:hover {
   .about-section > .about-desc {
     display: none;
   }
+  .about-section > .about-info-col > .about-card > h2 > .long-form-title {
+    display: block;
+  }
 }
 @media screen and (min-width: 962px) {
   .about-section > h1 {
     display: none;
+    border-bottom: none;
   }
   .about-section > .about-info-col {
     width: 55%;
@@ -469,6 +486,69 @@ nav ul li a:hover {
   }
   .portfolio-section > .carousel > .carousel-cards > .car-card > .port-header .maincard-break {
     display: none;
+  }
+  .portfolio-section > .carousel .carousel-cards .car-card {
+    flex-direction: row;
+  }
+  .portfolio-section > .carousel .carousel-cards .car-card .card-col1, .portfolio-section > .carousel .carousel-cards .car-card .card-col2-rev {
+    width: 50%;
+    margin: 10% 0;
+  }
+  .portfolio-section > .carousel .carousel-cards .car-card .card-col1 h2, .portfolio-section > .carousel .carousel-cards .car-card .card-col2-rev h2 {
+    color: rgb(203, 32, 32);
+    text-align: start;
+    font-size: 6vw;
+    padding: 20px;
+  }
+  .portfolio-section > .carousel .carousel-cards .car-card .card-col1 p, .portfolio-section > .carousel .carousel-cards .car-card .card-col2-rev p {
+    color: rgb(255, 255, 255);
+    text-indent: 30px;
+    padding: 0 20px 20px 20px;
+  }
+  .portfolio-section > .carousel .carousel-cards .car-card .card-col1 .large-screen-p, .portfolio-section > .carousel .carousel-cards .car-card .card-col2-rev .large-screen-p {
+    display: block;
+  }
+  .portfolio-section > .carousel .carousel-cards .car-card .card-col2, .portfolio-section > .carousel .carousel-cards .car-card .card-col1-rev {
+    margin: 10% 0;
+    width: 30%;
+  }
+  .portfolio-section > .carousel .carousel-cards .car-card .card-col2 iframe, .portfolio-section > .carousel .carousel-cards .car-card .card-col2 img, .portfolio-section > .carousel .carousel-cards .car-card .card-col1-rev iframe, .portfolio-section > .carousel .carousel-cards .car-card .card-col1-rev img {
+    padding: 5px;
+    height: 200px;
+    width: 90%;
+    display: block;
+    margin: 0 auto;
+  }
+  .portfolio-section > .carousel .carousel-cards .car-card .card-col2 iframe, .portfolio-section > .carousel .carousel-cards .car-card .card-col2 img, .portfolio-section > .carousel .carousel-cards .car-card .card-col2 .link, .portfolio-section > .carousel .carousel-cards .car-card .card-col1-rev iframe, .portfolio-section > .carousel .carousel-cards .car-card .card-col1-rev img, .portfolio-section > .carousel .carousel-cards .car-card .card-col1-rev .link {
+    border: 3px solid rgb(0, 0, 0);
+    box-shadow: 2px 4px 4px rgb(0, 0, 0);
+  }
+  .portfolio-section > .carousel .carousel-cards .car-card .card-col2 .link, .portfolio-section > .carousel .carousel-cards .car-card .card-col1-rev .link {
+    margin: 20px auto;
+    padding: 10px;
+    width: 50%;
+    background-color: rgb(203, 32, 32);
+  }
+  .portfolio-section > .carousel .carousel-cards .car-card .card-col2 .link a, .portfolio-section > .carousel .carousel-cards .car-card .card-col1-rev .link a {
+    text-decoration: none;
+    color: rgb(0, 0, 0);
+    font-size: 24px;
+  }
+  .portfolio-section > .carousel .carousel-cards .car-card .card-col2 .link i, .portfolio-section > .carousel .carousel-cards .car-card .card-col1-rev .link i {
+    color: black;
+    font-size: 28px;
+    padding-right: 10px;
+  }
+  .portfolio-section > .carousel .carousel-btn {
+    height: 70px;
+    width: 70px;
+    font-size: 42px;
+  }
+  .portfolio-section > .carousel .previous {
+    left: 25px;
+  }
+  .portfolio-section > .carousel .next {
+    right: 25px;
   }
   .footer > .foot-icon-row, .foot-info-row {
     padding: 20px 25vw;

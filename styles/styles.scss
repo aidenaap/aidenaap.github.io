@@ -226,7 +226,6 @@ nav {
         }
     }
 }
-
 // gradient to fade out
 .sw-credits::after {
     content: '';
@@ -236,7 +235,6 @@ nav {
     height: 40%;
     background: linear-gradient(180deg, rgba(0, 0, 0, 1) 40%, rgba(0, 0, 0, 0) 100%);
 }
-
 // background
 .intro-sw-section::before {
     content: ' ';
@@ -253,6 +251,7 @@ nav {
     background-size: cover;
 }
 
+
 // === Skills About === //
 .about-section {
     overflow-y: hidden;
@@ -261,9 +260,10 @@ nav {
     margin: 40px;
     padding-bottom: 10px;
 
-    h1 {
+    .small-about-title {
         color: $aztec;
         font-size: 36px;
+        border-bottom: 8px solid rgb(0, 0, 0);
     }
 
     .about-desc {
@@ -275,7 +275,7 @@ nav {
         padding-top: 15px;
     }
     
-    .about-info-col {
+    .about-info-col {   
         width: 100%;
         margin-right: 5%;
         padding-top: 45px;
@@ -298,7 +298,7 @@ nav {
                 content: '';
                 width: 0;
                 height: 5px;
-                background: $aztec;
+                background: rgb(0, 0, 0);
                 position: absolute;
                 left: 0;
                 bottom: -8px;
@@ -321,12 +321,17 @@ nav {
         .active-link {
             display: flex;
             flex-direction: column;
-            border-left: 5px solid rgb(255, 255, 255);
-            border-bottom: 5px solid rgb(255, 255, 255);
+            border-left: 5px solid rgb(0, 0, 0);
+            border-bottom: 5px solid rgb(0, 0, 0);
+            padding-bottom: 10px;
 
             h2 {
                 color: $aztec;
                 padding: 15px;
+
+                .long-form-title {
+                    display: none;
+                }
 
                 .date {
                     color: $dark-aztec;
@@ -334,14 +339,14 @@ nav {
                 }
             }
 
-            p {
-                padding: 0 30px;
-                color: rgb(255,255,255);
-                line-height: 25px;
-            }
+            ul {
+                list-style-type: disc;
+                color: white;
+                margin: 0 0 10px 45px;
 
-            p:last-child {
-                padding-bottom: 20px;
+                li {
+                    padding-top: 2px;
+                }
             }
         }
     }
@@ -359,8 +364,8 @@ nav {
         }
 
         .pic-container {
-            border-top: 5px solid rgb(255, 255, 255);
-            border-right: 5px solid rgb(255, 255, 255);
+            border-top: 5px solid rgb(0, 0, 0);
+            border-right: 5px solid rgb(0, 0, 0);
             
             #hockey-pic {
                 height: 80vh;
@@ -393,42 +398,47 @@ nav {
             transform: translateX(0);
             transition: transform 1s;
 
-            // dont touch any of that nonsense
+            // dont touch any of that nonsense above
             .car-card {
                 background-color: rgb(20, 20, 20);
                 height: 100vh;
                 width: 100vw;
                 display: flex;
+                flex-direction: column;
                 justify-content: center;
                 align-items: center;
                 
                 // title and description
                 .card-col1, .card-col2-rev {
-                    width: 50%;
-                    margin: 10% 0;
+                    width: 80%;
+                    margin: 0 auto;
 
                     h2 {
                         color: $aztec;
-                        text-align: start;
+                        text-align: center;
                         font-size: 6vw;
-                        padding: 20px;
+                        padding-bottom: 10px;
                     }
-
-                    // .small-header {
-                    //     font-size: 42px;
-                    // }
 
                     p {
                         color: rgb(255,255,255);
                         text-indent: 30px;
-                        padding:0 20px 20px 20px;
+                        padding-bottom: 7px;
+                    }
+
+                    p:last-child {
+                        padding-bottom: 15px;
+                    }
+
+                    .large-screen-p {
+                        display: none;
                     }
                 }
 
                 // image/video and source code
                 .card-col2, .card-col1-rev {
-                    margin: 10% 0;
-                    width: 30%;
+                    width: 80%;
+                    margin: 0 auto;
 
                     iframe, img {
                         padding: 5px;
@@ -444,10 +454,11 @@ nav {
                     }
 
                     .link {
-                        margin: 20px auto;
                         padding: 10px;
-                        width: 50%;
+                        width: 40%;
+                        margin: 10px auto;
                         background-color: $aztec;
+                        text-align: center;
                         
                         a {
                             text-decoration: none;
@@ -463,6 +474,7 @@ nav {
                     }
                 }
 
+                // first card
                 .port-header {
                     font-size: 42px;
                     text-align: center;
@@ -478,10 +490,10 @@ nav {
             border-radius: 3rem;
             color: white;
             cursor: pointer;
-            font-size: 42px;
+            font-size: 28px;
             font-weight: bold;
-            height: 70px;
-            width: 70px;
+            height: 40px;
+            width: 40px;
             opacity: 0.50;
             position: absolute;
             transition: opacity 0.25s;
@@ -489,11 +501,11 @@ nav {
         }
 
         .previous {
-            left: 25px;
+            left: 15px;
         }
             
         .next {
-            right: 25px;
+            right: 15px;
         }
 
         .carousel-btn:hover {
@@ -536,7 +548,7 @@ nav {
 
 }
 
-@media screen and (min-width: 642px) {
+@media screen and (min-width: 642px) { // change hero, about desc, and fill about titles
     // up nav font size
     nav > ul > li {
         font-size: 36px;
@@ -554,6 +566,10 @@ nav {
     .about-section > .about-desc {
         display: none;
     }
+    // show full about titles
+    .about-section > .about-info-col > .about-card > h2 > .long-form-title {
+        display: block;
+    }
 
 }
 
@@ -561,6 +577,7 @@ nav {
     // === About section === //
     .about-section > h1 { // hide About Me title
         display: none;
+        border-bottom: none;
     }
     .about-section > .about-info-col { // change info col width
         width: 55%;
@@ -577,6 +594,89 @@ nav {
         .maincard-break {
             display: none;
         }
+    }
+
+    .portfolio-section > .carousel {
+        
+        .carousel-cards {
+            .car-card {
+                flex-direction: row;
+    
+                .card-col1, .card-col2-rev {
+                    width: 50%;
+                    margin: 10% 0;
+    
+                    h2 {
+                        color: $aztec;
+                        text-align: start;
+                        font-size: 6vw;
+                        padding: 20px;
+                    }
+    
+                    p {
+                        color: rgb(255,255,255);
+                        text-indent: 30px;
+                        padding:0 20px 20px 20px;
+                    }
+    
+                    .large-screen-p {
+                        display: block;
+                    }
+                }
+    
+                .card-col2, .card-col1-rev {
+                    margin: 10% 0;
+                    width: 30%;
+    
+                    iframe, img {
+                        padding: 5px;
+                        height: 200px;
+                        width: 90%;
+                        display: block;
+                        margin: 0 auto;
+                    }
+    
+                    iframe, img, .link {
+                        border: 3px solid rgb(0, 0, 0);
+                        box-shadow: 2px 4px 4px rgb(0, 0, 0);
+                    }
+    
+                    .link {
+                        margin: 20px auto;
+                        padding: 10px;
+                        width: 50%;
+                        background-color: $aztec;
+                        
+                        a {
+                            text-decoration: none;
+                            color: rgb(0, 0, 0);
+                            font-size: 24px;
+                        }
+    
+                        i {
+                            color: black;
+                            font-size: 28px;
+                            padding-right: 10px;
+                        }
+                    }
+                }
+            }
+        }
+
+        .carousel-btn {
+            height: 70px;
+            width: 70px;
+            font-size: 42px;
+        }
+
+        .previous {
+            left: 25px;
+        }
+            
+        .next {
+            right: 25px;
+        }
+
     }
 
     // footer changes
