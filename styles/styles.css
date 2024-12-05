@@ -52,7 +52,6 @@ nav {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  animation: fade-in 3s ease-out;
 }
 nav a {
   text-decoration: none;
@@ -163,7 +162,7 @@ nav ul li a:hover {
 .intro-sw-section .sw-credits {
   display: flex;
   height: 100%;
-  width: 80%;
+  width: 100%;
   margin: 0 auto;
   perspective: 350px;
 }
@@ -174,7 +173,7 @@ nav ul li a:hover {
   font-weight: bold;
   text-align: justify;
   position: relative;
-  animation: scroll 90s linear forwards;
+  animation: scroll 120s linear forwards;
   animation-iteration-count: infinite;
 }
 .intro-sw-section .sw-credits .sw-text h1, .intro-sw-section .sw-credits .sw-text h4 {
@@ -295,6 +294,11 @@ nav ul li a:hover {
 }
 .about-section .about-info-col .active-link ul li {
   padding-top: 2px;
+}
+.about-section .about-info-col .active-link .red-text {
+  font-weight: bold;
+  -webkit-text-decoration: underline rgb(203, 32, 32);
+          text-decoration: underline rgb(203, 32, 32);
 }
 .about-section .about-pic-col {
   display: none;

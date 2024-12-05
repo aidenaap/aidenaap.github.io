@@ -64,7 +64,7 @@ nav {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    animation: fade-in 3s ease-out;
+    // animation: fade-in 3s ease-out;
 
     a {
         text-decoration: none;
@@ -194,7 +194,7 @@ nav {
     .sw-credits {
         display: flex;
         height: 100%;
-        width: 80%;
+        width: 100%;
         margin: 0 auto;
         perspective: 350px;
 
@@ -205,7 +205,7 @@ nav {
             font-weight: bold;
             text-align: justify;
             position: relative;
-            animation: scroll 90s linear forwards;
+            animation: scroll 120s linear forwards;
             animation-iteration-count: infinite;
 
             h1, h4 {
@@ -344,6 +344,12 @@ nav {
                 li {
                     padding-top: 2px;
                 }
+            }
+
+            .red-text {
+                // color: $aztec;
+                font-weight: bold;
+                text-decoration: underline $aztec;
             }
         }
     }
