@@ -44,14 +44,14 @@ body {
     right: 0;
     background-color: rgba(34, 40, 49, 0.95);
     backdrop-filter: blur(10px);
-    padding: 1rem 2rem;
+    padding: 1rem 1rem;
     z-index: 1000;
     box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
     transition: var(--transition-fast);
 }
 
 .nav-container {
-    max-width: 1400px;
+    max-width: 1800px;
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
@@ -80,15 +80,16 @@ body {
 }
 
 .logo-text {
-    display: none;
+    display: block;
     font-size: 1.8rem;
     font-weight: bold;
-    color: var(--accent-tan);
+    color: var(--accent-cream);
     transition: var(--transition-smooth);
+    cursor: pointer;
 }
 
 .logo-text:hover {
-    color: var(--accent-cream);
+    color: var(--accent-tan);
 }
 
 .nav-menu {
@@ -153,7 +154,7 @@ body {
     align-items: center;
     justify-content: center;
     overflow: hidden;
-    margin-top: 70px;
+    margin-top: 78px;
 }
 
 .hero-gif-container {
