@@ -26,18 +26,30 @@ This guide explains where to place your images for the redesigned portfolio site
 - **Format**: JPG or PNG
 - **Usage**: About Me section
 
-### 4. Work Photos (Optional but recommended)
-- **Filename**: `work-photo-elevare.jpg`
-- **Location**: Root directory (`/`)
-- **Recommended Size**: 600x300px or larger (2:1 aspect ratio)
+### 4. Work Photos (2 per job - Optional but recommended)
+
+**Elevare Web Solutions:**
+- **Filenames**: `images/Elevare_logo.png`, `images/elevare-work-2.jpg`
+- **Location**: `images/` directory
+- **Recommended Size**: 600x400px or larger (3:2 aspect ratio)
 - **Format**: JPG or PNG
 - **Usage**: Elevare Web Solutions experience section
+- **Note**: First photo is already in place (logo), add second work photo
 
-- **Filename**: `work-photo-apex.jpg`
-- **Location**: Root directory (`/`)
-- **Recommended Size**: 600x300px or larger (2:1 aspect ratio)
+**Apex Imaging Services:**
+- **Filenames**: `images/Apex_logo.png`, `images/apex-work-2.jpg`
+- **Location**: `images/` directory
+- **Recommended Size**: 600x400px or larger (3:2 aspect ratio)
 - **Format**: JPG or PNG
 - **Usage**: Apex Imaging Services experience section
+- **Note**: First photo is already in place (logo), add second work photo
+
+**La Jolla Kayak:**
+- **Filenames**: `images/lajolla-work-1.jpg`, `images/lajolla-work-2.jpg`
+- **Location**: `images/` directory
+- **Recommended Size**: 600x400px or larger (3:2 aspect ratio)
+- **Format**: JPG or PNG
+- **Usage**: La Jolla Kayak experience section
 
 ### 5. Project Screenshots
 - **Filename**: `project-stonkhub.jpg`

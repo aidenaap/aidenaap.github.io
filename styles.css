@@ -438,23 +438,26 @@ body {
     font-weight: bold;
 }
 
-.work-photo-placeholder {
+.work-photos-grid {
     margin-top: 1.5rem;
-    display: flex;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
 }
 
 .work-photo {
     width: 100%;
-    max-width: 600px;
     height: auto;
     border-radius: 10px;
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
     transition: var(--transition-smooth);
+    object-fit: cover;
+    aspect-ratio: 3/2;
 }
 
 .work-photo:hover {
-    transform: scale(1.02);
+    transform: scale(1.03);
+    box-shadow: 0 8px 30px rgba(148, 137, 121, 0.4);
 }
 
 /* ===================================
@@ -923,6 +926,11 @@ footer {
 
     .timeline-marker {
         left: -1.95rem;
+    }
+
+    .work-photos-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
     }
 }
 
