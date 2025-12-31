@@ -447,12 +447,13 @@ body {
 
 .work-photo {
     width: 100%;
+    max-height: 300px;
     height: auto;
     border-radius: 10px;
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
     transition: var(--transition-smooth);
-    object-fit: cover;
-    aspect-ratio: 3/2;
+    object-fit: contain;
+    background-color: var(--bg-dark);
 }
 
 .work-photo:hover {
@@ -507,18 +508,40 @@ body {
     justify-content: center;
     overflow: hidden;
     border-radius: 10px;
+    background-color: var(--bg-dark);
 }
 
 .project-image-large img {
     width: 100%;
-    height: 100%;
-    object-fit: cover;
+    height: auto;
+    max-height: 500px;
+    object-fit: contain;
     border-radius: 10px;
     transition: var(--transition-smooth);
 }
 
 .project-image-large img:hover {
     transform: scale(1.05);
+}
+
+.project-video-large {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    background-color: var(--bg-dark);
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+}
+
+.project-video-large iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
 }
 
 .project-details {
