@@ -31,15 +31,45 @@ class PortfolioCarousel {
     }
 
     goToSlide(index) {
-        // Remove active class from current slide and dot
-        this.slides[this.currentSlide].classList.remove('active');
+        if (index === this.currentSlide) return;
+
+        const currentSlide = this.slides[this.currentSlide];
+        const nextSlide = this.slides[index];
+        const direction = index > this.currentSlide ? 1 : -1;
+
+        // Remove active class from current dot
         this.dots[this.currentSlide].classList.remove('active');
 
-        // Update current slide index
-        this.currentSlide = index;
+        // Prepare next slide for entry
+        nextSlide.style.display = 'block';
+        nextSlide.style.transform = `translateX(${direction * 30}px)`;
+        nextSlide.style.opacity = '0';
 
-        // Add active class to new slide and dot
-        this.slides[this.currentSlide].classList.add('active');
+        // Force reflow for smooth transition
+        nextSlide.offsetHeight;
+
+        // Animate current slide out
+        currentSlide.style.transform = `translateX(${-direction * 30}px)`;
+        currentSlide.style.opacity = '0';
+
+        // Animate next slide in
+        nextSlide.style.transform = 'translateX(0)';
+        nextSlide.style.opacity = '1';
+
+        // Update classes after transition
+        setTimeout(() => {
+            currentSlide.classList.remove('active');
+            currentSlide.style.display = 'none';
+            currentSlide.style.transform = '';
+            currentSlide.style.opacity = '';
+
+            nextSlide.classList.add('active');
+            nextSlide.style.transform = '';
+            nextSlide.style.opacity = '';
+        }, 600);
+
+        // Update current slide index and dot
+        this.currentSlide = index;
         this.dots[this.currentSlide].classList.add('active');
     }
 
