@@ -271,17 +271,21 @@ class ExperienceCarousel {
         const isMobile = window.innerWidth <= this.breakpoint;
 
         if (isMobile) {
-            // Reset all items, activate current
+            // Remove scroll-animation classes so the carousel has sole
+            // control over opacity / transform (prevents all cards from
+            // becoming visible via .animate-on-scroll.visible at once).
             this.items.forEach((item, i) => {
+                item.classList.remove('animate-on-scroll', 'visible');
                 item.classList.remove('exp-active', 'exp-exit-left');
                 if (i === this.current) item.classList.add('exp-active');
             });
             this.updateDots();
             this.updateProgress();
         } else {
-            // Desktop: remove all carousel classes so normal flow applies
+            // Desktop: remove carousel classes, restore scroll animations
             this.items.forEach(item => {
                 item.classList.remove('exp-active', 'exp-exit-left');
+                item.classList.add('animate-on-scroll');
             });
             this.dots.forEach(d => d.classList.remove('active'));
         }
@@ -622,4 +626,4 @@ window.addEventListener('resize', () => {
         // Handle any resize-specific logic here
         console.log('Window resized');
     }, 250);
-});
+}); 

@@ -436,13 +436,10 @@ body {
     overflow: hidden;
 }
 
-@media (hover: hover) {
-    .skill-category:hover {
-        transform: translateX(10px);
-        box-shadow: 0 5px 20px rgba(148, 137, 121, 0.2);
-    }
+.skill-category:hover {
+    transform: translateX(10px);
+    box-shadow: 0 5px 20px rgba(148, 137, 121, 0.2);
 }
-
 
 /* ===================================
    Skill Accordion
@@ -472,7 +469,6 @@ body {
     color: var(--accent-tan);
     font-size: 0.85rem;
     transition: transform 0.35s ease;
-    display: none;
 }
 
 .skill-accordion-toggle[aria-expanded="false"] .skill-chevron {
@@ -1092,6 +1088,11 @@ footer {
 
     .project-showcase {
         grid-template-columns: 1fr;
+        align-content: center;
+    }
+
+    .project-image-large img {
+        max-height: 280px;
     }
 
     .about-grid {
@@ -1123,10 +1124,6 @@ footer {
 
     .hero-subtitle {
         font-size: 1.2rem;
-    }
-
-    .skill-chevron {
-        display: block;
     }
 
     .section-title {
@@ -1201,7 +1198,7 @@ footer {
         flex-direction: column;
         align-items: center;
         flex-shrink: 0;
-        padding: 0.4rem 1rem 0;
+        padding: 0.4rem 1rem 0.8rem;
     }
 
     .htimeline-track {
@@ -1279,6 +1276,34 @@ footer {
     .htimeline-dot.active .htimeline-label {
         opacity: 1;
         color: var(--accent-cream);
+    }
+
+    .htimeline-date {
+        font-size: 0.6rem;
+        color: var(--accent-tan);
+        opacity: 0.4;
+        font-style: italic;
+        letter-spacing: 0.01em;
+        white-space: nowrap;
+        transition: opacity 0.3s ease, color 0.3s ease;
+    }
+
+    .htimeline-dot.active .htimeline-date {
+        opacity: 0.8;
+        color: var(--accent-cream);
+    }
+
+    /* Hide the date from cards on mobile — it's on the timeline now */
+    .timeline-header .date {
+        display: none;
+    }
+
+    .about-section {
+        padding-bottom: 0px;
+    }
+
+    .timeline {
+        max-height: 650px;
     }
 
     .htimeline-swipe-hint {
@@ -1433,6 +1458,10 @@ footer {
 
     .project-showcase {
         padding: 1rem;
+    }
+
+    .project-image-large img {
+        max-height: 220px;
     }
 
     .modal-content {
