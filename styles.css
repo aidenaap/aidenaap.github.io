@@ -47,7 +47,8 @@ body {
     padding: 1rem 1rem;
     z-index: 1000;
     box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
-    transition: var(--transition-fast);
+    transition: background-color 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+                box-shadow 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .nav-container {
@@ -84,7 +85,7 @@ body {
     font-size: 1.8rem;
     font-weight: bold;
     color: var(--accent-cream);
-    transition: var(--transition-smooth);
+    transition: color 0.5s cubic-bezier(0.4, 0, 0.2, 1);
     cursor: pointer;
 }
 
@@ -105,7 +106,7 @@ body {
     font-size: 1rem;
     font-weight: 500;
     position: relative;
-    transition: var(--transition-smooth);
+    transition: color 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .nav-menu li a::after {
@@ -116,7 +117,7 @@ body {
     width: 0;
     height: 2px;
     background-color: var(--accent-tan);
-    transition: width 0.3s ease;
+    transition: width 0.3s ease, background-color 0.5s ease;
 }
 
 .nav-menu li a:hover {
@@ -136,13 +137,59 @@ body {
 .nav-icon {
     color: var(--accent-cream);
     font-size: 1.3rem;
-    transition: var(--transition-smooth);
+    transition: color 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+                transform 0.2s ease;
 }
 
 .nav-icon:hover {
     color: var(--accent-tan);
     transform: translateY(-3px);
 }
+
+/* ===================================
+   Navbar – Scrolled (past hero) state
+   =================================== */
+.navbar.scrolled {
+    background-color: rgba(223, 208, 184, 0.97);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.12);
+}
+
+.navbar.scrolled .logo-text {
+    color: var(--bg-dark);
+}
+
+.navbar.scrolled .logo-text:hover {
+    color: var(--accent-tan);
+}
+
+.navbar.scrolled .nav-menu li a {
+    color: var(--bg-dark);
+}
+
+.navbar.scrolled .nav-menu li a::after {
+    background-color: var(--accent-tan);
+}
+
+.navbar.scrolled .nav-menu li a:hover {
+    color: var(--accent-tan);
+}
+
+.navbar.scrolled .nav-icon {
+    color: var(--bg-dark);
+}
+
+.navbar.scrolled .nav-icon:hover {
+    color: var(--accent-tan);
+}
+
+.navbar.scrolled .hamburger-line {
+    background-color: var(--bg-dark);
+}
+
+/* ===================================
+   Hamburger Button
+   =================================== */
 
 /* Hamburger button — hidden by default (desktop) */
 .hamburger-btn {
@@ -163,7 +210,8 @@ body {
     height: 3px;
     background-color: var(--accent-cream);
     border-radius: 2px;
-    transition: transform 0.35s ease, opacity 0.25s ease;
+    transition: transform 0.35s ease, opacity 0.25s ease,
+                background-color 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* Animated X state when menu is open */
@@ -465,10 +513,12 @@ body {
     pointer-events: none;
 }
 
-.skill-chevron {
-    color: var(--accent-tan);
-    font-size: 0.85rem;
-    transition: transform 0.35s ease;
+@media (hover: hover) {
+    .skill-chevron {
+        color: var(--accent-tan);
+        font-size: 0.85rem;
+        transition: transform 0.35s ease;
+    }    
 }
 
 .skill-accordion-toggle[aria-expanded="false"] .skill-chevron {
@@ -515,6 +565,9 @@ body {
     text-decoration: underline;
 }
 
+.skill-chevron {
+    display: none;
+}
 /* ===================================
    Experience Section (Timeline)
    =================================== */
@@ -1190,6 +1243,10 @@ footer {
         font-size: 1.5rem;
         margin: 1rem 0 0.5rem;
         flex-shrink: 0;
+    }
+
+    .skill-chevron {
+        display: block;
     }
 
     /* --- Horizontal timeline nav --- */

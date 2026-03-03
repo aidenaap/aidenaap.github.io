@@ -271,9 +271,6 @@ class ExperienceCarousel {
         const isMobile = window.innerWidth <= this.breakpoint;
 
         if (isMobile) {
-            // Remove scroll-animation classes so the carousel has sole
-            // control over opacity / transform (prevents all cards from
-            // becoming visible via .animate-on-scroll.visible at once).
             this.items.forEach((item, i) => {
                 item.classList.remove('animate-on-scroll', 'visible');
                 item.classList.remove('exp-active', 'exp-exit-left');
@@ -282,7 +279,6 @@ class ExperienceCarousel {
             this.updateDots();
             this.updateProgress();
         } else {
-            // Desktop: remove carousel classes, restore scroll animations
             this.items.forEach(item => {
                 item.classList.remove('exp-active', 'exp-exit-left');
                 item.classList.add('animate-on-scroll');
@@ -343,7 +339,7 @@ class ExperienceCarousel {
     updateProgress() {
         if (!this.progress) return;
         const pct = this.items.length > 1
-            ? (this.current / (this.items.length - 1)) * 80   // 80% = track width (10%–90%)
+            ? (this.current / (this.items.length - 1)) * 80
             : 0;
         this.progress.style.width = `${pct}%`;
     }
@@ -362,7 +358,6 @@ class ExperienceCarousel {
         this.touchDeltaX = e.touches[0].clientX - this.touchStartX;
         const deltaY = Math.abs(e.touches[0].clientY - this.touchStartY);
 
-        // If horizontal intent, prevent vertical scroll
         if (Math.abs(this.touchDeltaX) > deltaY && Math.abs(this.touchDeltaX) > 10) {
             e.preventDefault();
         }
@@ -371,9 +366,9 @@ class ExperienceCarousel {
     onTouchEnd() {
         if (window.innerWidth > this.breakpoint) return;
         if (this.touchDeltaX > this.swipeThreshold) {
-            this.goTo(this.current - 1);   // swipe right → previous
+            this.goTo(this.current - 1);
         } else if (this.touchDeltaX < -this.swipeThreshold) {
-            this.goTo(this.current + 1);   // swipe left → next
+            this.goTo(this.current + 1);
         }
     }
 }
@@ -395,7 +390,6 @@ class ModalManager {
     }
 
     init() {
-        // Set up triggers
         this.triggers.forEach(trigger => {
             trigger.addEventListener('click', (e) => {
                 e.preventDefault();
@@ -404,14 +398,12 @@ class ModalManager {
             });
         });
 
-        // Set up close buttons
         this.closeButtons.forEach(button => {
             button.addEventListener('click', () => {
                 this.closeAllModals();
             });
         });
 
-        // Close on background click
         Object.values(this.modals).forEach(modal => {
             if (modal) {
                 modal.addEventListener('click', (e) => {
@@ -422,7 +414,6 @@ class ModalManager {
             }
         });
 
-        // Close on ESC key
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape') {
                 this.closeAllModals();
@@ -434,7 +425,7 @@ class ModalManager {
         const modal = this.modals[modalName];
         if (modal) {
             modal.classList.add('active');
-            document.body.style.overflow = 'hidden'; // Prevent background scrolling
+            document.body.style.overflow = 'hidden';
         }
     }
 
@@ -444,7 +435,7 @@ class ModalManager {
                 modal.classList.remove('active');
             }
         });
-        document.body.style.overflow = ''; // Restore scrolling
+        document.body.style.overflow = '';
     }
 }
 
@@ -463,18 +454,14 @@ class ScrollAnimations {
     }
 
     init() {
-        // Create Intersection Observer
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('visible');
-                    // Optional: Unobserve after animation (one-time animation)
-                    // observer.unobserve(entry.target);
                 }
             });
         }, this.observerOptions);
 
-        // Observe all elements with animate-on-scroll class
         const animatedElements = document.querySelectorAll('.animate-on-scroll');
         animatedElements.forEach(element => {
             observer.observe(element);
@@ -491,7 +478,6 @@ function initSmoothScrolling() {
         anchor.addEventListener('click', function (e) {
             const href = this.getAttribute('href');
 
-            // Skip if it's just '#' or modal trigger
             if (href === '#' || this.classList.contains('modal-trigger')) {
                 return;
             }
@@ -513,21 +499,50 @@ function initSmoothScrolling() {
 }
 
 // ===================================
-// Navbar Scroll Effect
+// Navbar Scroll Effect (shadow + color swap)
 // ===================================
 
 function initNavbarScrollEffect() {
     const navbar = document.querySelector('.navbar');
+    const heroSection = document.querySelector('.hero-section');
     let lastScrollTop = 0;
 
+    if (!navbar || !heroSection) return;
+
+    // Use IntersectionObserver to detect when the hero leaves the viewport.
+    // When the hero's bottom edge crosses the top of the viewport the navbar
+    // swaps to the cream "scrolled" palette.
+    const heroObserver = new IntersectionObserver(
+        ([entry]) => {
+            // entry.isIntersecting is true while any part of the hero is visible
+            if (entry.isIntersecting) {
+                navbar.classList.remove('scrolled');
+            } else {
+                navbar.classList.add('scrolled');
+            }
+        },
+        {
+            // trigger as soon as even 1 px of the hero disappears / reappears
+            threshold: 0,
+            rootMargin: '0px 0px 0px 0px'
+        }
+    );
+
+    heroObserver.observe(heroSection);
+
+    // Keep the existing box-shadow intensity tweak on scroll
     window.addEventListener('scroll', () => {
         const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
 
-        // Add shadow when scrolled
-        if (scrollTop > 50) {
-            navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.5)';
+        if (navbar.classList.contains('scrolled')) {
+            // Lighter shadow on cream background
+            navbar.style.boxShadow = scrollTop > 50
+                ? '0 2px 20px rgba(0, 0, 0, 0.12)'
+                : '0 2px 10px rgba(0, 0, 0, 0.08)';
         } else {
-            navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.3)';
+            navbar.style.boxShadow = scrollTop > 50
+                ? '0 2px 20px rgba(0, 0, 0, 0.5)'
+                : '0 2px 20px rgba(0, 0, 0, 0.3)';
         }
 
         lastScrollTop = scrollTop;
@@ -548,7 +563,6 @@ function initLogoFallback() {
             logoText.style.display = 'block';
         });
 
-        // Check if image is already loaded
         if (logoImage.complete && logoImage.naturalHeight === 0) {
             logoImage.style.display = 'none';
             logoText.style.display = 'block';
@@ -567,7 +581,6 @@ function initLazyLoading() {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 const img = entry.target;
-                // Image is already loaded, just observe for animations
                 observer.unobserve(img);
             }
         });
@@ -581,37 +594,18 @@ function initLazyLoading() {
 // ===================================
 
 document.addEventListener('DOMContentLoaded', () => {
-    // Initialize carousel
     const carousel = new PortfolioCarousel();
-
-    // Initialize mobile menu
     const mobileMenu = new MobileMenu();
-
-    // Initialize skill accordion
     const skillAccordion = new SkillAccordion();
-
-    // Initialize experience carousel (mobile horizontal swipe)
     const experienceCarousel = new ExperienceCarousel();
-
-    // Initialize modals
     const modalManager = new ModalManager();
-
-    // Initialize scroll animations
     const scrollAnimations = new ScrollAnimations();
 
-    // Initialize smooth scrolling
     initSmoothScrolling();
-
-    // Initialize navbar effects
     initNavbarScrollEffect();
-
-    // Initialize logo fallback
     initLogoFallback();
-
-    // Initialize lazy loading
     initLazyLoading();
 
-    // Log for debugging
     console.log('Portfolio site initialized successfully!');
 });
 
@@ -623,7 +617,6 @@ let resizeTimer;
 window.addEventListener('resize', () => {
     clearTimeout(resizeTimer);
     resizeTimer = setTimeout(() => {
-        // Handle any resize-specific logic here
         console.log('Window resized');
     }, 250);
-}); 
+});
