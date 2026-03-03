@@ -144,6 +144,143 @@ body {
     transform: translateY(-3px);
 }
 
+/* Hamburger button — hidden by default (desktop) */
+.hamburger-btn {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 6px;
+    z-index: 1100;
+}
+
+.hamburger-line {
+    display: block;
+    width: 26px;
+    height: 3px;
+    background-color: var(--accent-cream);
+    border-radius: 2px;
+    transition: transform 0.35s ease, opacity 0.25s ease;
+}
+
+/* Animated X state when menu is open */
+.hamburger-btn.open .hamburger-line:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+.hamburger-btn.open .hamburger-line:nth-child(2) {
+    opacity: 0;
+}
+.hamburger-btn.open .hamburger-line:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+/* ===================================
+   Mobile Slide-Out Menu
+   =================================== */
+.mobile-menu-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.55);
+    z-index: 1999;
+    opacity: 0;
+    transition: opacity 0.35s ease;
+}
+
+.mobile-menu-overlay.visible {
+    display: block;
+    opacity: 1;
+}
+
+.mobile-menu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 280px;
+    max-width: 85vw;
+    height: 100%;
+    background-color: var(--bg-dark);
+    z-index: 2000;
+    transform: translateX(100%);
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: -4px 0 30px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+}
+
+.mobile-menu.open {
+    transform: translateX(0);
+}
+
+.mobile-menu-close {
+    align-self: flex-end;
+    background: none;
+    border: none;
+    color: var(--accent-cream);
+    font-size: 2.4rem;
+    cursor: pointer;
+    padding: 1.2rem 1.5rem 0;
+    transition: color 0.2s ease;
+}
+
+.mobile-menu-close:hover {
+    color: var(--accent-tan);
+}
+
+.mobile-menu-nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem 1.5rem 3rem;
+    flex: 1;
+}
+
+.mobile-nav-link {
+    color: var(--accent-cream);
+    text-decoration: none;
+    font-size: 1.25rem;
+    font-weight: 500;
+    padding: 1rem 0;
+    text-align: center;
+    width: 100%;
+    transition: color 0.2s ease;
+}
+
+.mobile-nav-link:hover,
+.mobile-nav-link:active {
+    color: var(--accent-tan);
+}
+
+.mobile-nav-divider {
+    width: 60%;
+    border: none;
+    border-top: 1px solid var(--bg-medium);
+    margin: 0;
+}
+
+.mobile-social-row {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    padding-top: 1.2rem;
+    width: 100%;
+}
+
+.mobile-social-icon {
+    color: var(--accent-cream);
+    font-size: 1.5rem;
+    transition: var(--transition-smooth);
+}
+
+.mobile-social-icon:hover {
+    color: var(--accent-tan);
+    transform: translateY(-3px);
+}
+
 /* ===================================
    Hero Section
    =================================== */
@@ -292,35 +429,78 @@ body {
 
 .skill-category {
     background-color: var(--bg-medium);
-    padding: 1.5rem;
+    padding: 0;
     border-radius: 10px;
     border-left: 4px solid var(--accent-tan);
     transition: var(--transition-smooth);
+    overflow: hidden;
 }
 
-.skill-category:hover {
-    transform: translateX(10px);
-    box-shadow: 0 5px 20px rgba(148, 137, 121, 0.2);
+@media (hover: hover) {
+    .skill-category:hover {
+        transform: translateX(10px);
+        box-shadow: 0 5px 20px rgba(148, 137, 121, 0.2);
+    }
 }
 
-.skill-category h3 {
+
+/* ===================================
+   Skill Accordion
+   =================================== */
+.skill-accordion-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 1.5rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: inherit;
+    font-family: inherit;
+    text-align: left;
+}
+
+.skill-accordion-toggle h3 {
     color: var(--accent-tan);
     font-size: 1.3rem;
-    margin-bottom: 1rem;
+    margin: 0;
+    pointer-events: none;
 }
 
-.skill-category ul {
+.skill-chevron {
+    color: var(--accent-tan);
+    font-size: 0.85rem;
+    transition: transform 0.35s ease;
+    display: none;
+}
+
+.skill-accordion-toggle[aria-expanded="false"] .skill-chevron {
+    transform: rotate(-90deg);
+}
+
+.skill-accordion-body {
     list-style: none;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+                padding 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    padding: 0 1.5rem;
 }
 
-.skill-category ul li {
+.skill-accordion-body.open {
+    max-height: 300px;
+    padding: 0 1.5rem 1.5rem;
+}
+
+.skill-accordion-body li {
     color: var(--accent-cream);
     padding: 0.4rem 0;
     position: relative;
     padding-left: 1.5rem;
 }
 
-.skill-category ul li::before {
+.skill-accordion-body li::before {
     content: '▹';
     position: absolute;
     left: 0;
@@ -328,13 +508,13 @@ body {
     font-weight: bold;
 }
 
-.skill-category ul li a {
+.skill-accordion-body li a {
     color: var(--accent-tan);
     text-decoration: none;
     transition: var(--transition-fast);
 }
 
-.skill-category ul li a:hover {
+.skill-accordion-body li a:hover {
     color: var(--accent-cream);
     text-decoration: underline;
 }
@@ -888,6 +1068,13 @@ footer {
 }
 
 /* ===================================
+   Horizontal Timeline Nav (mobile only)
+   =================================== */
+.htimeline-nav {
+    display: none;          /* hidden on desktop */
+}
+
+/* ===================================
    Responsive Design
    =================================== */
 @media (max-width: 1024px) {
@@ -912,17 +1099,22 @@ footer {
     }
 }
 
+/* ===================================
+   Mobile: hamburger + slide-out menu
+   =================================== */
 @media (max-width: 768px) {
+    /* Show hamburger, hide desktop nav */
+    .hamburger-btn {
+        display: flex;
+    }
+
+    .nav-menu,
+    .nav-right {
+        display: none;
+    }
+
     .nav-left {
         gap: 1.5rem;
-    }
-
-    .nav-menu {
-        gap: 1rem;
-    }
-
-    .nav-menu li a {
-        font-size: 0.9rem;
     }
 
     .hero-title {
@@ -931,6 +1123,10 @@ footer {
 
     .hero-subtitle {
         font-size: 1.2rem;
+    }
+
+    .skill-chevron {
+        display: block;
     }
 
     .section-title {
@@ -966,20 +1162,245 @@ footer {
     }
 
     .timeline {
-        padding-left: 1rem;
+        padding-left: 0;
     }
 
     .timeline-item {
-        padding-left: 1.5rem;
+        padding-left: 0;
     }
 
     .timeline-marker {
-        left: -1.95rem;
+        display: none;
     }
 
     .work-photos-grid {
-        grid-template-columns: 1fr;
-        gap: 1rem;
+        grid-template-columns: 1fr 1fr;
+        gap: 0.5rem;
+    }
+
+    /* ---- Mobile Experience Carousel ---- */
+
+    .experience-section {
+        height: 100svh;
+        height: 100vh;              /* fallback for older browsers */
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        padding: 0 0.25rem;
+    }
+
+    .experience-section .subsection-title {
+        font-size: 1.5rem;
+        margin: 1rem 0 0.5rem;
+        flex-shrink: 0;
+    }
+
+    /* --- Horizontal timeline nav --- */
+    .htimeline-nav {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        flex-shrink: 0;
+        padding: 0.4rem 1rem 0;
+    }
+
+    .htimeline-track {
+        position: relative;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        width: 100%;
+        max-width: 320px;
+        padding-top: 8px;
+    }
+
+    /* Background line */
+    .htimeline-line {
+        position: absolute;
+        top: 14px;
+        left: 10%;
+        right: 10%;
+        height: 3px;
+        background-color: var(--bg-medium);
+        border-radius: 2px;
+    }
+
+    /* Animated progress fill */
+    .htimeline-progress {
+        position: absolute;
+        top: 14px;
+        left: 10%;
+        height: 3px;
+        width: 0%;
+        background: linear-gradient(90deg, var(--accent-tan), var(--accent-cream));
+        border-radius: 2px;
+        transition: width 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .htimeline-dot {
+        position: relative;
+        background: none;
+        border: none;
+        cursor: pointer;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 6px;
+        z-index: 1;
+        padding: 0;
+    }
+
+    .htimeline-pip {
+        display: block;
+        width: 14px;
+        height: 14px;
+        border-radius: 50%;
+        background-color: var(--bg-medium);
+        border: 2.5px solid var(--accent-tan);
+        transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .htimeline-dot.active .htimeline-pip {
+        background-color: var(--accent-tan);
+        transform: scale(1.35);
+        box-shadow: 0 0 0 4px rgba(148, 137, 121, 0.25);
+    }
+
+    .htimeline-label {
+        font-size: 0.7rem;
+        color: var(--accent-tan);
+        opacity: 0.5;
+        font-weight: 600;
+        letter-spacing: 0.02em;
+        transition: opacity 0.3s ease, color 0.3s ease;
+        white-space: nowrap;
+    }
+
+    .htimeline-dot.active .htimeline-label {
+        opacity: 1;
+        color: var(--accent-cream);
+    }
+
+    .htimeline-swipe-hint {
+        font-size: 0.65rem;
+        color: var(--accent-tan);
+        opacity: 0.45;
+        margin-top: 0.3rem;
+        letter-spacing: 0.03em;
+    }
+
+    .htimeline-swipe-hint i {
+        margin-right: 0.3em;
+    }
+
+    /* --- Vertical timeline → horizontal card stack --- */
+    .timeline::before {
+        display: none;
+    }
+
+    .timeline {
+        position: relative;
+        flex: 1;
+        min-height: 0;          /* allow flex shrink */
+        overflow: hidden;
+    }
+
+    .timeline-item {
+        position: absolute;
+        inset: 0;
+        margin-bottom: 0;
+        opacity: 0;
+        transform: translateX(80px);
+        transition: opacity 0.45s cubic-bezier(0.4, 0, 0.2, 1),
+                    transform 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+        pointer-events: none;
+        display: flex;
+    }
+
+    .timeline-item.exp-active {
+        opacity: 1;
+        transform: translateX(0);
+        pointer-events: auto;
+    }
+
+    .timeline-item.exp-exit-left {
+        opacity: 0;
+        transform: translateX(-80px);
+    }
+
+    /* --- Compact card content --- */
+    .timeline-content {
+        width: 100%;
+        padding: 0.75rem 1rem;
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+    }
+
+    .timeline-content::-webkit-scrollbar {
+        display: none;
+    }
+
+    .timeline-content:hover {
+        transform: none;
+        box-shadow: none;
+    }
+
+    .timeline-header {
+        margin-bottom: 0.4rem;
+        gap: 0.25rem;
+    }
+
+    .timeline-header h4 {
+        font-size: 1.05rem;
+        margin-bottom: 0.1rem;
+    }
+
+    .timeline-header .company {
+        font-size: 0.9rem;
+    }
+
+    .timeline-header .date {
+        font-size: 0.8rem;
+    }
+
+    /* Reduce gap between dual-position headers (Apex card) */
+    .timeline-content .timeline-header[style*="margin-top"] {
+        margin-top: 0.6rem !important;
+    }
+
+    .timeline-content ul {
+        margin-top: 0.3rem;
+    }
+
+    .timeline-content ul li {
+        font-size: 0.82rem;
+        line-height: 1.4;
+        margin-bottom: 0.25rem;
+        padding-left: 1rem;
+    }
+
+    .timeline-content ul li::before {
+        font-size: 0.8rem;
+    }
+
+    .work-photo {
+        max-height: 90px;
+        border-radius: 6px;
+    }
+
+    /* Accordion: start collapsed on mobile */
+    .skill-accordion-body {
+        max-height: 0;
+        padding: 0 1.5rem;
+    }
+
+    .skill-accordion-body.open {
+        max-height: 300px;
+        padding: 0 1.5rem 1.5rem;
     }
 }
 
@@ -989,18 +1410,9 @@ footer {
     }
 
     .nav-left {
-        flex-direction: column;
-        align-items: flex-start;
+        flex-direction: row;
+        align-items: center;
         gap: 0.5rem;
-    }
-
-    .nav-menu {
-        flex-wrap: wrap;
-        gap: 0.5rem;
-    }
-
-    .nav-menu li a {
-        font-size: 0.8rem;
     }
 
     .hero-title {
