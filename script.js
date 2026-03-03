@@ -269,6 +269,111 @@ function initLogoFallback() {
     }
 }
 
+function initMobileNavigation() {
+    const hamburger = document.querySelector('.hamburger');
+    const navLinks = document.querySelector('.nav-links');
+    const navAnchors = document.querySelectorAll('.nav-links a');
+
+    if (!hamburger || !navLinks) {
+        return;
+    }
+
+    hamburger.addEventListener('click', () => {
+        const isOpen = navLinks.classList.toggle('open');
+        hamburger.classList.toggle('active', isOpen);
+        hamburger.setAttribute('aria-expanded', String(isOpen));
+    });
+
+    navAnchors.forEach((anchor) => {
+        anchor.addEventListener('click', () => {
+            if (window.innerWidth <= 768) {
+                navLinks.classList.remove('open');
+                hamburger.classList.remove('active');
+                hamburger.setAttribute('aria-expanded', 'false');
+            }
+        });
+    });
+}
+
+function initSkillsAccordion() {
+    const skillCards = document.querySelectorAll('.skill-category');
+
+    if (!skillCards.length) {
+        return;
+    }
+
+    const setDefaultAccordionState = () => {
+        const isMobile = window.innerWidth <= 768;
+
+        skillCards.forEach((card, index) => {
+            const toggle = card.querySelector('.skill-toggle');
+            if (!toggle) {
+                return;
+            }
+
+            if (isMobile) {
+                const shouldBeOpen = index === 0;
+                card.classList.toggle('open', shouldBeOpen);
+                toggle.setAttribute('aria-expanded', String(shouldBeOpen));
+            } else {
+                card.classList.remove('open');
+                toggle.setAttribute('aria-expanded', 'true');
+            }
+        });
+    };
+
+    skillCards.forEach((card) => {
+        const toggle = card.querySelector('.skill-toggle');
+        if (!toggle) {
+            return;
+        }
+
+        toggle.addEventListener('click', () => {
+            if (window.innerWidth > 768) {
+                return;
+            }
+
+            const isOpen = card.classList.toggle('open');
+            toggle.setAttribute('aria-expanded', String(isOpen));
+        });
+    });
+
+    setDefaultAccordionState();
+    window.addEventListener('resize', setDefaultAccordionState);
+}
+
+function initHeroMediaLoop() {
+    const video = document.querySelector('.hero-video');
+    const gif = document.querySelector('.hero-gif');
+
+    if (!gif) {
+        return;
+    }
+
+    const forceGifLoop = () => {
+        const currentSrc = gif.src.split('?')[0];
+        setInterval(() => {
+            gif.src = `${currentSrc}?loop=${Date.now()}`;
+        }, 12000);
+    };
+
+    if (!video) {
+        forceGifLoop();
+        return;
+    }
+
+    video.addEventListener('loadeddata', () => {
+        video.style.display = 'block';
+        gif.style.display = 'none';
+    });
+
+    video.addEventListener('error', () => {
+        video.style.display = 'none';
+        gif.style.display = 'block';
+        forceGifLoop();
+    });
+}
+
 // ===================================
 // Performance Optimization - Lazy Loading
 // ===================================
@@ -311,6 +416,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Initialize logo fallback
     initLogoFallback();
+
+    // Initialize mobile navigation menu
+    initMobileNavigation();
+
+    // Initialize mobile accordion for skills
+    initSkillsAccordion();
+
+    // Initialize hero media looping behavior
+    initHeroMediaLoop();
 
     // Initialize lazy loading
     initLazyLoading();

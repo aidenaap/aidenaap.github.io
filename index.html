@@ -15,23 +15,30 @@
     <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
-            <div class="nav-left">
-                <div class="logo-container">
-                    <!-- Logo image placeholder - replace src with your logo -->
-                    <!-- <img src="images/AP_Logo_trans.png" alt="AP Logo" class="logo-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"> -->
-                    <span class="logo-text">AP</span>
-                </div>
+            <div class="logo-container">
+                <!-- Logo image placeholder - replace src with your logo -->
+                <!-- <img src="images/AP_Logo_trans.png" alt="AP Logo" class="logo-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"> -->
+                <span class="logo-text">AP</span>
+            </div>
+
+            <button class="hamburger" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobile-nav-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <div class="nav-links" id="mobile-nav-menu">
                 <ul class="nav-menu">
                     <li><a href="#about">About Me</a></li>
                     <li><a href="#portfolio">Portfolio</a></li>
                     <li><a href="#" class="modal-trigger" data-modal="services">Services</a></li>
                     <li><a href="#" class="modal-trigger" data-modal="blog">Blog</a></li>
                 </ul>
-            </div>
-            <div class="nav-right">
-                <a href="mailto:aidenperez@elevaresolutions.tech" class="nav-icon" title="Email"><i class="fas fa-envelope"></i></a>
-                <a href="https://github.com/aidenaap" target="_blank" rel="noopener noreferrer" class="nav-icon" title="GitHub"><i class="fab fa-github"></i></a>
-                <a href="https://www.linkedin.com/in/aiden-perez/" target="_blank" rel="noopener noreferrer" class="nav-icon" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <div class="nav-right">
+                    <a href="mailto:aidenperez@elevaresolutions.tech" class="nav-icon" title="Email"><i class="fas fa-envelope"></i></a>
+                    <a href="https://github.com/aidenaap" target="_blank" rel="noopener noreferrer" class="nav-icon" title="GitHub"><i class="fab fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/aiden-perez/" target="_blank" rel="noopener noreferrer" class="nav-icon" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                </div>
             </div>
         </div>
     </nav>
@@ -39,6 +46,9 @@
     <!-- Hero Section with GIF -->
     <section class="hero-section">
         <div class="hero-gif-container">
+            <video class="hero-video" autoplay muted loop playsinline poster="images/hero_animation.gif">
+                <source src="images/hero_animation.mp4" type="video/mp4">
+            </video>
             <img src="images/hero_animation.gif" alt="Hero Animation" class="hero-gif">
             <div class="hero-overlay">
                 <h1 class="hero-title">Aiden Perez</h1>
@@ -65,41 +75,61 @@
                     <p>Today, I'm the owner of Elevare Web Solutions, where I leverage my experience to help small businesses streamline their operations and build custom web solutions tailored to their unique needs.</p>
                 </div>
 
-                <div class="about-skills animate-on-scroll">
+                <div class="about-skills animate-on-scroll" id="skills-accordion">
                     <div class="skill-category">
-                        <h3>Programming</h3>
-                        <ul>
-                            <li>Python, JavaScript, C++</li>
-                            <li>PHP, HTML, CSS, SQL</li>
-                            <li>REST & GraphQL APIs</li>
-                            <li>Palantir Ontology</li>
-                        </ul>
+                        <button class="skill-toggle" aria-expanded="false">
+                            <h3>Programming</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="skill-content">
+                            <ul>
+                                <li>Python, JavaScript, C++</li>
+                                <li>PHP, HTML, CSS, SQL</li>
+                                <li>REST & GraphQL APIs</li>
+                                <li>Palantir Ontology</li>
+                            </ul>
+                        </div>
                     </div>
                     <div class="skill-category">
-                        <h3>Frameworks & Tools</h3>
-                        <ul>
-                            <li>Node.js, Next.js</li>
-                            <li>Git, Vercel, Heroku</li>
-                            <li>Google Cloud Console</li>
-                            <li>Microsoft Suite Admin</li>
-                        </ul>
+                        <button class="skill-toggle" aria-expanded="false">
+                            <h3>Frameworks & Tools</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="skill-content">
+                            <ul>
+                                <li>Node.js, Next.js</li>
+                                <li>Git, Vercel, Heroku</li>
+                                <li>Google Cloud Console</li>
+                                <li>Microsoft Suite Admin</li>
+                            </ul>
+                        </div>
                     </div>
                     <div class="skill-category">
-                        <h3>Databases</h3>
-                        <ul>
-                            <li>MongoDB</li>
-                            <li>MySQL</li>
-                            <li>PostgreSQL</li>
-                            <li>QuickBase</li>
-                        </ul>
+                        <button class="skill-toggle" aria-expanded="false">
+                            <h3>Databases</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="skill-content">
+                            <ul>
+                                <li>MongoDB</li>
+                                <li>MySQL</li>
+                                <li>PostgreSQL</li>
+                                <li>QuickBase</li>
+                            </ul>
+                        </div>
                     </div>
                     <div class="skill-category">
-                        <h3>Certifications</h3>
-                        <ul>
-                            <li>Palantir Foundry/AIP Cert</li>
-                            <li>Celigo Builder Core</li>
-                            <li>As seen in the <a href="https://www.wsj.com/finance/stocks/microstrategy-growth-investor-community-7c6efd7c?pos=1&page=1">WSJ</a></li>
-                        </ul>
+                        <button class="skill-toggle" aria-expanded="false">
+                            <h3>Certifications</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </button>
+                        <div class="skill-content">
+                            <ul>
+                                <li>Palantir Foundry/AIP Cert</li>
+                                <li>Celigo Builder Core</li>
+                                <li>As seen in the <a href="https://www.wsj.com/finance/stocks/microstrategy-growth-investor-community-7c6efd7c?pos=1&page=1">WSJ</a></li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>

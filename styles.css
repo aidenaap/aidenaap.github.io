@@ -58,10 +58,10 @@ body {
     align-items: center;
 }
 
-.nav-left {
+.nav-links {
     display: flex;
     align-items: center;
-    gap: 3rem;
+    gap: 2.5rem;
 }
 
 .logo-container {
@@ -97,6 +97,35 @@ body {
     display: flex;
     gap: 2rem;
     align-items: center;
+}
+
+.hamburger {
+    display: none;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0.25rem;
+}
+
+.hamburger span {
+    display: block;
+    width: 24px;
+    height: 3px;
+    margin: 4px 0;
+    background-color: var(--accent-cream);
+    transition: var(--transition-fast);
+}
+
+.hamburger.active span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
 }
 
 .nav-menu li a {
@@ -171,6 +200,14 @@ body {
     object-fit: cover;
     object-position: center;
     image-rendering: auto;
+}
+
+.hero-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: none;
 }
 
 .hero-overlay {
@@ -286,7 +323,7 @@ body {
 
 .about-skills {
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr;
     gap: 1.5rem;
 }
 
@@ -307,6 +344,25 @@ body {
     color: var(--accent-tan);
     font-size: 1.3rem;
     margin-bottom: 1rem;
+}
+
+.skill-toggle {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: transparent;
+    border: none;
+    cursor: default;
+    text-align: left;
+}
+
+.skill-toggle i {
+    display: none;
+}
+
+.skill-content {
+    margin-top: 0.5rem;
 }
 
 .skill-category ul {
@@ -907,22 +963,60 @@ footer {
         grid-template-columns: 1fr;
     }
 
-    .about-grid {
+    .about-grid,
+    .about-skills {
         grid-template-columns: 1fr;
     }
 }
 
 @media (max-width: 768px) {
-    .nav-left {
-        gap: 1.5rem;
+    .nav-container {
+        position: relative;
+    }
+
+    .hamburger {
+        display: block;
+        z-index: 1001;
+    }
+
+    .nav-links {
+        position: absolute;
+        top: calc(100% + 0.75rem);
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1.2rem;
+        background-color: rgba(34, 40, 49, 0.98);
+        border: 1px solid rgba(148, 137, 121, 0.3);
+        border-radius: 12px;
+        padding: 1rem;
+        opacity: 0;
+        pointer-events: none;
+        transform: translateY(-8px);
+        transition: var(--transition-fast);
+    }
+
+    .nav-links.open {
+        opacity: 1;
+        pointer-events: auto;
+        transform: translateY(0);
     }
 
     .nav-menu {
-        gap: 1rem;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.85rem;
     }
 
     .nav-menu li a {
-        font-size: 0.9rem;
+        font-size: 1rem;
+    }
+
+    .nav-right {
+        width: 100%;
+        justify-content: flex-start;
+        gap: 1.25rem;
     }
 
     .hero-title {
@@ -981,6 +1075,36 @@ footer {
         grid-template-columns: 1fr;
         gap: 1rem;
     }
+
+    .skill-category {
+        padding: 1rem;
+    }
+
+    .skill-toggle {
+        cursor: pointer;
+    }
+
+    .skill-toggle i {
+        display: block;
+        color: var(--accent-tan);
+        transition: var(--transition-fast);
+    }
+
+    .skill-content {
+        max-height: 0;
+        overflow: hidden;
+        margin-top: 0;
+        transition: max-height 0.3s ease;
+    }
+
+    .skill-category.open .skill-content {
+        max-height: 240px;
+        margin-top: 0.75rem;
+    }
+
+    .skill-category.open .skill-toggle i {
+        transform: rotate(180deg);
+    }
 }
 
 @media (max-width: 480px) {
@@ -988,19 +1112,8 @@ footer {
         padding: 0.8rem 1rem;
     }
 
-    .nav-left {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 0.5rem;
-    }
-
-    .nav-menu {
-        flex-wrap: wrap;
-        gap: 0.5rem;
-    }
-
     .nav-menu li a {
-        font-size: 0.8rem;
+        font-size: 0.95rem;
     }
 
     .hero-title {
